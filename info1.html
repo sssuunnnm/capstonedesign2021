@@ -1,0 +1,56 @@
+<!doctype html>
+{% load static %}
+<html lang='ko'>
+  <head>
+    <meta charset="utf-8">
+    <title>page1</title>
+    <link rel = "stylesheet" href="{% static 'css/info1.css' %}">
+  </head>
+
+  <body>
+    <header id="header">
+      <div class = "container">
+        <a href="home">홈</a>
+        <a href="login">로그인</a>
+        <a href="signup">회원가입</a>
+      </div>
+
+      <div class = "title">
+        <p>가배추</p>
+      </div>
+    </header>
+
+
+    <form method="post" action="info2" class="selectForm">
+       {% csrf_token %}
+      <p>나이를 선택해주세요</p>
+      <select name="age">
+        <option value="">나이선택</option>
+        <option value="10">10대</option>
+        <option value="20">20대</option>
+        <option value="30">30대</option>
+        <option value="40">40대이상</option>
+      </select>
+
+    <p>성별을 선택해주세요</p>
+      <select name="gender">
+        <option value="">성별선택</option>
+        <option value="female">여성</option>
+        <option value="male">남성</option>
+      </select>
+
+    <p>직업을 선택해주세요</p>
+      <select name="job">
+          <option value="">직업선택</option>
+          <option value="students">초,중,고등학생</option>
+          <option value="univ_students">대학생</option>
+          <option value="office_worker">회사원</option>
+          <option value="freelancer">프리랜서</option>
+      </select>
+
+      <div class = "next">
+        <input type="submit" class="btn" value = "다음 단계!"></button>
+      </div>
+    </form>
+  </body>
+</html>

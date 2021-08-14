@@ -1,0 +1,40 @@
+<!-- 회원일 경우 info2 페이지부터 -->
+<!doctype html>
+{% load static %}
+<html lang='ko'>
+  <head>
+    <meta charset="utf-8">
+    <title>gabechoos</title>
+    <link rel = "stylesheet" href="{% static 'css/info2.css' %}">
+  </head>
+  <body>
+    <header id="header">
+      <div class = "container">
+        <a href="home">홈</a>
+        <a href="login">로그인</a>
+        <a href="signup">회원가입</a>
+      </div>
+
+      <div class = "title">
+        <p>가배추</p>
+      </div>
+    </header>
+
+    <div class = "option">
+      <form method="get" action="info3" class="selectForm">
+        {% csrf_token %}
+        방 이름을 입력해주세요<br>
+        <input type="text" name="Rname" style="width:100px"><br>
+
+        방 크기를 입력해주세요<br>
+        <input type="radio" name="chk_shape" value="shp_squa"> 정사각형
+        <input type="radio" name="chk_shape" value="shp_rect"> 직사각형
+
+        <div class = "next">
+          <input type="submit" class="btn" value = "다음 단계!"></button>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>

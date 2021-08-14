@@ -1,0 +1,41 @@
+<!doctype html>
+{% load static %}
+<html lang='ko'>
+  <head>
+    <meta charset="utf-8">
+    <title>HOME</title>
+    <link rel = "stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+
+  <body>
+    <header id="header">
+      <div class ="container">
+        <a href="home">홈</a>
+        <a href="login">로그인</a>
+        <a href="signup">회원가입</a>
+      </div>
+    </header>
+
+    <h2>로그인</h2>
+
+    <form method="post" action="home" class="loginForm">
+      <div class="idForm">
+        <input type="text" class="id" placeholder="ID(email)">
+      </div>
+
+      <div class="passForm">
+        <input type="password" class="pw" placeholder="PW">
+      </div>
+
+      <input type="submit" class="btn" value = "로그인하기!">
+
+
+    <div class="bottomText">
+      <a href="#">아이디 찾기</a>
+      <a href="#">비밀번호 찾기</a>
+      <a href="signup">회원가입</a>
+    </div>
+  </form>
+
+  </body>
+</html>

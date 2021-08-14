@@ -1,0 +1,57 @@
+<!doctype html>
+{% load static %}
+<html lang='ko'>
+  <head>
+    <meta charset="utf-8">
+    <title>page1</title>
+    <link rel = "stylesheet" href="{% static 'css/recommand.css' %}">
+  </head>
+
+  <body>
+    <header id="header">
+      <div class = "container">
+        <a href="home">홈</a>
+        <a href="login">로그인</a>
+        <a href="signup">회원가입</a>
+      </div>
+
+      <div class = "title">
+        <p>가배추</p>
+      </div>
+    </header>
+
+    <h2>  인기 배치 </h2>
+    <div class="imgCollage">
+      <span style="width: 32%">
+        <span class="imageblock" style="display:inline-block;width:820px; height: 617px;max-width:100%">
+
+          <img src="/static/img/정1.png" style="cursor: pointer; max-width:100%; height:auto"  >
+
+         </span>
+      </span>
+
+      <span style="width: 32%">
+        <span class = "imageblock" style="display:inline-block;width:820px; height: 617px;max-width:100%">
+        <img src="/static/img/정4.png" style="cursor: pointer; max-width:100%; height:auto">
+      </span>
+      </span>
+
+      <span style="width: 32%">
+        <span class = "imageblock" style="display:inline-block;width:820px; height: 617px;max-width:100%">
+        <img src="/static/img/정2.png" style="cursor: pointer; max-width:100%; height:auto">
+      </span>
+      </span>
+    </div>
+
+
+    <h2> 추천 마음에 드셨나요? </h2>
+      <form method="" action="info3" class="selectForm">
+        <p>추천에 대한 피드백을 남겨 주세요!</p><br>
+        <input type="text" name="Rname"><br>
+        <div class = "submit">
+          <input type="submit" class="btn" value = "제출!"></button>
+        </div>
+      </form>
+  </header>
+</body>
+</html>
