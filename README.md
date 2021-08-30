@@ -27,12 +27,12 @@
 > 
 > 
 #
-#### 4️⃣Flow chart
+#### 4️⃣ Flow chart
 
 ![img_1.png](img_1.png)
 
 #
 
-#### 5️⃣실행 화면
+#### 5️⃣ 실행 화면
 
 ![img.png](img.png)
