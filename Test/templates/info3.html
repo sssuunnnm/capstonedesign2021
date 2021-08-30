@@ -1,0 +1,51 @@
+<!doctype html>
+{% load static %}
+<html lang='ko'>
+  <head>
+    <meta charset="utf-8">
+    <title>HOME</title>
+    <link rel = "stylesheet" href="{% static 'css/info3.css' %}">
+  </head>
+
+  <body>
+    <header id="header">
+      <div class = "container">
+        <a href="home">홈</a>
+        <a href="login">로그인</a>
+        <a href="signup">회원가입</a>
+      </div>
+
+      <div class = "title">
+        <p>가배추</p>
+      </div>
+    </header>
+
+    <p>고정 가구의 위치를 선택해주세요</p>
+    <img src="/static/img/fixed.png" style=" max-width:300px; height:auto"  ><br>
+
+    <form method="post" action="info4" class="selectForm">
+      {% csrf_token %}
+      <div class="fixed_fur">
+        <input type="checkbox" checked="checked" name="chk_fur1[]" value="kitchen"> 주방
+        <input type="text" name="Kname1[]" style="width:100px" placeholder=" ex) 1, 2, 3"><br>
+        <input type="checkbox" checked="checked" name="chk_fur1[]" value="front"> 현관
+        <input type="text" name="Kname2[]" style="width:100px"><br>
+        <input type="checkbox" checked="checked" name="chk_fur1[]" value="refri"> 냉장고
+        <input type="text" name="Kname3[]" style="width:100px"><br>
+        <input type="checkbox" checked="checked" name="chk_fur1[]" value="restroom"> 화장실
+        <input type="text" name="Kname4[]" style="width:100px"><br>
+        <input type="checkbox" checked="checked" name="chk_fur1[]" value="bed"> 침대
+        <input type="text" name="Kname5[]" style="width:100px"><br>
+        <input type="checkbox" checked="checked" name="chk_fur1[]" value="closet"> 옷장
+        <input type="text" name="Kname6[]" style="width:100px"><br>
+        <input type="checkbox" checked="checked" name="chk_fur1[]" value="wmachine"> 세탁기
+        <input type="text" name="Kname7[]" style="width:100px"><br>
+      </div>
+
+      <div class = "next">
+        <input type="submit" class="btn" value = "다음 단계!"></button>
+      </div>
+    </form>
+
+  </body>
+</html>

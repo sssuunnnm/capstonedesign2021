@@ -1,0 +1,187 @@
+* {padding: 0; margin: 0;}
+* {background-color:#e8f5e9; font-family:  "Noto Sans CJK KR"}
+
+/* (반응형) 홈 화면 ~1280 */
+@media (max-width:1280px) {body {background-color:#bbdefb}}
+@media (max-width:1024px) {body {background-color:#90caf9}}
+@media (max-width:768px) {body {background-color:#64b5f6}}
+@media (max-width:600px) {body {background-color:#42a5f5}}
+@media (max-width:480px) {body {background-color:#2196f3}}
+
+/* (반응형)오른쪽 상단바 */
+.container{width:1200px; margin:0 auto; background:inherit; text-align:right;}
+.container a{display:inline-block; text-decoration:none; color:#212121; padding: 5px 0 0 10px; transition: all 0.5s ease;}
+.container a:hover {color:#f44336; }
+@media (max-width : 1280px) {.container {width:90%; padding:0 15px}}
+
+/* 내용 가운데 정렬 */
+body {text-align: center}
+
+.signupForm {
+  position:absolute;
+  width:400px;
+  height:950px;
+  padding: 30px, 20px;
+  background-color:#FFFFFF;
+  text-align:center;
+  top:70%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+  /* transition: 0.3s ease; */
+}
+.signupForm h2{
+  text-align: center;
+  margin: 30px;
+  background-color: inherit;
+}
+.idForm{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
+}
+.passForm1{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
+}
+.passForm2{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
+}
+.nameForm{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
+}
+.sexForm{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
+}
+.birthForm{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
+}
+.occuForm{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
+}
+
+.email {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.pw1 {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.pw2 {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+.name {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+.sex {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+.year {
+  width: 30%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+.month {
+  width: 30%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+.day {
+  width: 30%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+.occu {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
+.btn {
+  position:relative;
+  left:40%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  width:80%;
+  height:40px;
+  background: linear-gradient(125deg,#7cb342,#7cb388,#7cb342);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  display:inline;
+}
+
+.btn:hover {
+  background-position: right;
+  /* transition: 0.3s ease; */
+}
