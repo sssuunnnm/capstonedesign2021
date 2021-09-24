@@ -8,16 +8,16 @@ urlpatterns =[
     url(r'^info2$',views.info2),
     url(r'^info3$',views.info3),
     url(r'^info4$',views.info4),
-    url(r'^recommand$',views.recommend),
+    url(r'signup',views.signup),
+    url(r'recommend/',views.recommend),
     url(r'info1/info2',views.info2),
     url(r'info1/signup',views.signup),
-    url(r'info4',views.info4),
     url(r'info1/info1',views.info1),
     url(r'info1/info2', views.info2),
     url(r'info1/info3', views.info3),
     url(r'info1/info4', views.info4),
     url(r'info1/home', views.home),
-    url(r'info1/recommand', views.recommend),
+    url(r'info1/recommend', views.recommend),
     url(r'info2/info1', views.info1),
     url(r'info2/info3', views.info3),
     url(r'info2/info4', views.info4),
@@ -33,7 +33,7 @@ urlpatterns =[
     url(r'info4/info3', views.info3),
     url(r'info4/home', views.home),
     url(r'info4/recommend', views.recommend),
-    url(r'^login$', views.login),
+    url(r'^login', views.login),
     url(r'home/login', views.login),
     url(r'info1/login', views.login),
     url(r'info2/login', views.login),
@@ -68,6 +68,7 @@ urlpatterns =[
     url(r'info2/info1/recommend', views.recommend),
     url(r'info2/info3/recommend', views.recommend),
     url(r'info3/info4/recommend', views.recommend),
+
 ]
 
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
