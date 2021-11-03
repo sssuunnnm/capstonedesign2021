@@ -16,24 +16,25 @@
       </div>
     </header>
 
-    <form method="" action="signup" class="signupForm">
-
+    <form method="POST" action="signup" class="signupForm">
+        {% csrf_token %}
       <h2>회원가입</h2>
       <div class="idForm">
         이메일(아이디)
-        <input type="email" class="email" placeholder="email@gmail.com">
+        <input type="email" name="username"class="email" placeholder="email@gmail.com">
       </div>
       <input type="submit" class="Ebtn" name="Echeck" value="이메일 확인">
 
       <div class="passForm1">
       비밀번호
-      <input type="password" class = "pw1" value="" placeholder="비밀번호">
+      <input type="password" name="password" class = "pw1" value="" placeholder="비밀번호">
     </div>
 
     <div class="passForm2">
       비밀번호 확인
-      <input type="password" class = "pw2" value="" placeholder="비밀번호확인">
+      <input type="password" name="confirm" class = "pw2" value="" placeholder="비밀번호확인">
       <!-- <input type="button" name="user_PWcheck" value="비밀번호 재확인"> -->
+
     </div>
 
     <div class="nameForm">
