@@ -3,25 +3,49 @@
 <html lang='ko'>
   <head>
     <meta charset="utf-8">
-    <title>HOME</title>
+    <title> 가구 배치 추천시스템, 가배추 </title>
     <link rel = "stylesheet" href="{% static 'css/home.css' %}">
   </head>
 
   <body>
-    <header id="header">
+    <header id="HomeHeader">
       <div class = "container">
         <a href="home">홈</a>
         <a href="login">로그인</a>
         <a href="signup">회원가입</a>
       </div>
 
-      <div class = "title">
-        <p>가배추</p>
-        <h2>결정이 어려운<br>당신을 위한<br>가구 배치 툴 <a style="color:#558b2f">가배추</a></h2>
-        <!-- 제출 아니라서 button 씀 -->
-        <button type="button" onclick="location.href = 'info1'">바로 시작하기</button>
+      <div class = 'logoimg'>
+        <img src="/static/img/titleLogo2.png" width ="105px" height="28px">
       </div>
-
     </header>
+
+    <main id = 'MainTitle'>
+      <div class = 'mainsection'>
+        <div class = 'mainimg'>
+          <div class = 'img'>
+            <img src="/static/img/grid_test.png" width ="200px" height="200px">
+          </div>
+          <div class = 'text'>
+            <p>
+              <!-- js로 이미지 슬라이드<br>
+              반응형 grid 넣기 -->
+            </p>
+          </div>
+        </div>
+
+        <div class = 'box'>
+          <div class = 'titlesection'>
+            <p class = "normal"> 당신을 위한 </p>
+            <p class = "normal"> 가구 배치 추천 </p>
+            <p class = "highlight" style="color:#558b2f"> 가배추 </p>
+          </div>
+
+          <div class = 'button'>
+              <button type="button" onclick="location.href = 'info1'"> 지금 추천받기 </button>
+          </div>
+        </div>
+      </div> 
+    </main>
   </body>
 </html>
