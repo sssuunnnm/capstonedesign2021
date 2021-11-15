@@ -1,53 +1,70 @@
-* {padding: 0; margin: 0;}
-* {background-color:#e8f5e9; font-family:  "Noto Sans CJK KR"}
+* {
+  background-color:#ffffff;
+  font-family:  "Noto Sans CJK KR"
+}
 
-/* (반응형) 홈 화면 ~1280 */
-@media (max-width:1280px) {body {background-color:#bbdefb}}
-@media (max-width:1024px) {body {background-color:#90caf9}}
-@media (max-width:768px) {body {background-color:#64b5f6}}
-@media (max-width:600px) {body {background-color:#42a5f5}}
-@media (max-width:480px) {body {background-color:#2196f3}}
+/* 우측 상단바 */
+.container {
+  width : 1200px;
+  margin : 0 auto;
+  background : inherit;
+  text-align :right;
+}
 
-/* (반응형)오른쪽 상단바 */
-.container{width:1200px; margin:0 auto; background:inherit; text-align:right;}
-.container a{display:inline-block; text-decoration:none; color:#212121; padding: 5px 0 0 10px; transition: all 0.5s ease;}
-.container a:hover {color:#f44336; }
-@media (max-width : 1280px) {.container {width:90%; padding:0 15px}}
+.container a {
+  display : inline-block;
+  text-decoration : none;
+  color : #212121;
+  padding : 5px 0 0 10px;
+  transition: all 0.5s ease;
+}
+
+.container a:hover {color : #268623}
+
+@media (max-width : 1280px) {
+  .container {
+      width : 90%;
+      padding : 0 15px
+  }
+}
 
 /* 내용 가운데 정렬 */
-body {text-align: center}
+body {
+  text-align: center
+}
+
+/* 사이트 로고 */
+.logoimg {
+  text-align : center;
+}
 
 .signupForm {
   position:absolute;
   width:400px;
   height:950px;
   padding: 30px, 20px;
-  background-color:#FFFFFF;
+  background-color:#e8f5e9;
   text-align:center;
   top:70%;
   left:50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -40%);
   border-radius: 15px;
   /* transition: 0.3s ease; */
 }
-.signupForm h2{
-  text-align: center;
-  margin: 30px;
-  background-color: inherit;
-}
+
 .idForm{
   border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
   background-color: inherit;
 }
-.passForm1{
+.passForm{
   border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
   background-color: inherit;
 }
-.passForm2{
+.passCheck{
   border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
@@ -59,7 +76,7 @@ body {text-align: center}
   padding: 10px 10px;
   background-color: inherit;
 }
-.sexForm{
+.genderForm{
   border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
@@ -71,7 +88,7 @@ body {text-align: center}
   padding: 10px 10px;
   background-color: inherit;
 }
-.occuForm{
+.jobForm{
   border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
@@ -88,7 +105,7 @@ body {text-align: center}
   background: none;
 }
 
-.pw1 {
+.pw {
   width: 100%;
   border:none;
   outline:none;
@@ -98,7 +115,7 @@ body {text-align: center}
   background: none;
 }
 
-.pw2 {
+.pw_ck {
   width: 100%;
   border:none;
   outline:none;
@@ -116,7 +133,7 @@ body {text-align: center}
   height:25px;
   background: none;
 }
-.sex {
+.gender {
   width: 100%;
   border:none;
   outline:none;
@@ -153,7 +170,7 @@ body {text-align: center}
   background: none;
 }
 
-.occu {
+.job {
   width: 100%;
   border:none;
   outline:none;
