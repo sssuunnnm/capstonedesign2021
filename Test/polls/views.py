@@ -101,7 +101,6 @@ def recommend(request):
 def image(request):
     return render
 
-
 # 회원 가입
 def signup(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
@@ -118,6 +117,7 @@ def signup(request):
 
 
 # 로그인
+
 def login(request):
     # login으로 POST 요청이 들어왔을 때, 로그인 절차를 밟는다.
     if request.method == 'POST':

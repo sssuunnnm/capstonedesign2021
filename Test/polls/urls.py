@@ -69,6 +69,7 @@ urlpatterns =[
     url(r'info2/info3/recommend', views.recommend),
     url(r'info3/info4/recommend', views.recommend),
 
+
 ]
 
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

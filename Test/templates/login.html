@@ -19,6 +19,7 @@
     <h2>로그인</h2>
 
     <form method="post" action="home" class="loginForm">
+      {% csrf_token %}
       <div class="idForm">
         <input type="text" class="id" placeholder="ID(email)">
       </div>
