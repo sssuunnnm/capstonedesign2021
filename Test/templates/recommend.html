@@ -15,43 +15,56 @@
         <a href="signup">회원가입</a>
       </div>
 
-      <div class = "title">
-        <p>가배추</p>
+      <div class = 'logoimg'>
+        <img src="/static/img/titleLogo2.png" width ="105px" height="28px">
       </div>
     </header>
+    
+    <main id = 'MainTitle'>
+      <div class = 'mainsection'>
 
-    <h2>  인기 배치 </h2>
-    <div class="imgCollage">
-      <span style="width: 32%">
-        <span class="imageblock" style="display:inline-block;width:820px; height: 617px;max-width:100%">
-
-          <img src="/static/img/정1.png" style="cursor: pointer; max-width:100%; height:auto"  >
-
-         </span>
-      </span>
-
-      <span style="width: 32%">
-        <span class = "imageblock" style="display:inline-block;width:820px; height: 617px;max-width:100%">
-        <img src="/static/img/정4.png" style="cursor: pointer; max-width:100%; height:auto">
-      </span>
-      </span>
-
-      <span style="width: 32%">
-        <span class = "imageblock" style="display:inline-block;width:820px; height: 617px;max-width:100%">
-        <img src="/static/img/정2.png" style="cursor: pointer; max-width:100%; height:auto">
-      </span>
-      </span>
-    </div>
-
-
-    <h2> 추천 마음에 드셨나요? </h2>
-      <form method="" action="info3" class="selectForm">
-        <p>추천에 대한 피드백을 남겨 주세요!</p><br>
-        <input type="text" name="Rname" style="background-color:white;><br>
-        <div class = "submit">
-          <input type="submit" class="btn" value = "제출!"></button>
+        <div class = 'titlesection'>
+          <p class = "normal"> [말감]님을 위한 추천배치 </p>
         </div>
-      </form>
-  </header>
-</body>
+
+        <div class="imgCollage">
+          <span style="width: 32%">
+            <span class="imageblock" style="display:inline-block;">
+              <img src="/static/img/정1.png" style="cursor: pointer; max-width:100%; height:auto"  >
+            </span>
+          </span>
+
+          <span style="width: 32%">
+            <span class = "imageblock" style="display:inline-block;">
+              <img src="/static/img/정4.png" style="cursor: pointer; max-width:100%; height:auto">
+            </span>
+          </span>
+
+          <span style="width: 32%">
+            <span class = "imageblock" style="display:inline-block;">
+              <img src="/static/img/정2.png" style="cursor: pointer; max-width:100%; height:auto">
+            </span>
+          </span>
+        </div>
+
+        <div class = 'evalsection'>
+          <form method="" action="home" class="selectForm">
+            <p>추천에 대한 피드백과 별점을 남겨 주세요!</p>
+            <input type="text" name="Rname" style="background-color:white;"><br>
+
+            <input type="radio" name="chk_info" value="1">★☆☆☆☆<br>
+            <input type="radio" name="chk_info" value="2">★★☆☆☆<br>
+            <input type="radio" name="chk_info" value="3">★★★☆☆<br>
+            <input type="radio" name="chk_info" value="3">★★★★☆<br>
+            <input type="radio" name="chk_info" value="3">★★★★★<br>
+            
+            <div class = "submit">
+                <input type="submit" class="btn" value = "제출!"></button>
+            </div>
+          
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

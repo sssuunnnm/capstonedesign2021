@@ -1,7 +1,17 @@
 *🎈 가 배 추 🎈*
 ==============
-#### 단국대학교 컴퓨터공학과 캡스톤디자인  🥔 1조 말하는 감자 🥔
+#### 단국대학교 컴퓨터공학과 캡스톤디자인  🥔 말하는 감자 🥔  
 
+## ✨ Contributors ✨
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/JayDwk"><img src="https://avatars.githubusercontent.com/u/83630504?v=4" width="100px;" alt=""/><br /><sub><b>MinGun Jung</b></sub></a><br /> <td align="center"><a href="https://github.com/kimyeonhong00"><img src="https://avatars.githubusercontent.com/u/63278864?v=4" width="100px;" alt=""/><br /><sub><b>YeonHong Kim</b></sub></a><br /> <td align="center"><a href="https://github.com/dbqls200"><img src="https://avatars.githubusercontent.com/u/87077859?v=4" width="100px;" alt=""/><br /><sub><b>YuBeen Kim</b></sub></a><br /><td align="center"><a href="https://github.com/sssuunnnm"><img src="https://avatars.githubusercontent.com/u/63292816?v=4" width="100px;" alt=""/><br /><sub><b>MinGun Jung</b></sub></a><br />
+</table>
+  
 -----
 
 
