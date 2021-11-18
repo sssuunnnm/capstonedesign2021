@@ -726,44 +726,39 @@ def addgenerate(chk):
     return array1
 
 
-def show_image1(array1,funiture_code ,image):
+def show_image1(array1,background):
     # 2차원 배열, 텍스트, 가구 코드, 배경 이미지
     # 배열에 가구코드가 있을 시 실행
-    msg=''
-    if funiture_code == 1:
-        msg = "침대"
-    elif funiture_code == 2:
-        msg = "책상"
-    elif funiture_code == 3:
-        msg = "옷장"
-    elif funiture_code == 4:
-        msg = "세탁기"
-    elif funiture_code == 5:
-        msg = "화장실"
-    elif funiture_code == 6:
-        msg = "수납장"
-    elif funiture_code == 7:
-        msg = "냉장고"
-    elif funiture_code == 8:
-        msg = "주방"
-    elif funiture_code == 9:
-        msg = "현관"
-    elif funiture_code == 10:
-        msg = "협탁"
+    for i in range(1, 11):
+        if i == 1:
+            furniture_image = Image.open("bed.png")
+        elif i == 2:
+            furniture_image = Image.open("desk.png")
+        elif i == 3:
+            furniture_image = Image.open("closet.png")
+        elif i == 4:
+            furniture_image = Image.open("wmachine.png")
+        # elif i == 5:
+        # furniture_image = Image.open("화장실")
+        elif i == 6:
+            furniture_image = Image.open("storage.png")
+        elif i == 7:
+            furniture_image = Image.open("refri.png")
+        # elif i == 8:
+        # furniture_image = Image.open("주방")
+        # elif i == 9:
+        # furniture_image = Image.open("현관")
+        elif i == 10:
+            furniture_image = Image.open("table.png")
 
-    if funiture_code in array1:
+        if np.any(array1 == i):
+            back = Image.open(background)
+            image_size = back.size[0]
 
-        # 배경 이미지
-        back = Image.open(image)
-
-        # 이미지 크기
-        image_size = back.size[0]
-        # 한칸 크기 = 이미지 크기 / 배열 행 크기
         s = image_size // int((np.shape(array1))[0])
-
         # 인덱스
         # #배열에 가구코드가 하나 이상 들어갔을때를 구분
-        arridx = np.where(array1 == funiture_code)
+        arridx = np.where(array1 == i)
         if len(arridx[0]) == 1:
             a = int(arridx[0])
             b = int(arridx[1])
@@ -774,8 +769,8 @@ def show_image1(array1,funiture_code ,image):
         # 가구 이미지 크기
         temp = arridx[0][0]
         count = 0
-        for i in arridx[0]:
-            if temp == i:
+        for j in arridx[0]:
+            if temp == j:
                 count += 1
         # x 길이
         f_size_x = count
@@ -787,18 +782,12 @@ def show_image1(array1,funiture_code ,image):
         # y 길이
         f_size_y = ycount
 
-
         # 좌표
         y = a * s
         x = b * s
 
-
         # 가구 이미지 생성
-        draw = Image.new('RGB', ((s * f_size_x), (s * f_size_y)), 'black')
-        # 텍스트 넣기
-        d = ImageDraw.Draw(draw)
-        d.text(((s * f_size_x) / 2, (s * f_size_y) / 2), msg, fill="white",
-               font=ImageFont.truetype("./batang.ttc", 14))
+        draw = furniture_image.resize(((s * f_size_x), (s * f_size_y)))
         # 배경 이미지에 가구 이미지 붙여넣기
         back.paste(draw, (x, y))
         back.save(image)
