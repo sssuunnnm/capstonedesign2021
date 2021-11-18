@@ -9,6 +9,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from .models import user_info
 
 array1 = np.zeros((20, 20))
 
@@ -101,6 +102,7 @@ def recommend(request):
 def image(request):
     return render
 
+
 # 회원 가입
 def signup(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
@@ -108,7 +110,20 @@ def signup(request):
         # password와 confirm에 입력된 값이 같다면
         if request.POST['password'] == request.POST['confirm']:
             # user 객체를 새로 생성
-            user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
+            user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'],
+                                            first_name=request.POST['first_name'], last_name=request.POST['last_name'])
+            auth.login(request, user)
+            userInfo = user_info()
+            userInfo.gender = request.POST['gender']
+            userInfo.user = request.user
+            userInfo.job = request.POST['job']
+            userInfo.year = request.POST['year']
+            userInfo.month = request.POST['month']
+            userInfo.day = request.POST['day']
+            #userID = auth.authenticate(request, username='username', password='password')
+            #userinfo = user_info.objects.all
+            #userinfo = user_info(user_id=User.id, gender=request.POST['gender'], job=request.POST['job'])
+            userInfo.save()
             # 로그인 한다
             auth.login(request, user)
             return redirect('/')
@@ -117,13 +132,12 @@ def signup(request):
 
 
 # 로그인
-
 def login(request):
     # login으로 POST 요청이 들어왔을 때, 로그인 절차를 밟는다.
     if request.method == 'POST':
         # login.html에서 넘어온 username과 password를 각 변수에 저장한다.
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
         # 해당 username과 password와 일치하는 user 객체를 가져온다.
         user = auth.authenticate(request, username=username, password=password)
@@ -144,13 +158,12 @@ def login(request):
 
 # 로그 아웃
 def logout(request):
+    auth.logout(request)
+    return redirect('/')
     # logout으로 POST 요청이 들어왔을 때, 로그아웃 절차를 밟는다.
-    if request.method == 'POST':
-        auth.logout(request)
-        return redirect('/')
-
+    #if request.method == 'POST':
     # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
-    return render(request, 'login.html')
-
+    #else:
+        #return render(request, 'login.html')
 
 # Create your views here.
