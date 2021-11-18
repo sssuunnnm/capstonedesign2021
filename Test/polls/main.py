@@ -790,4 +790,4 @@ def show_image1(array1,background):
             draw = furniture_image.resize(((s * f_size_x), (s * f_size_y)))
             # 배경 이미지에 가구 이미지 붙여넣기
             back.paste(draw, (x, y))
-            back.save(image)
+            back.save(background)
