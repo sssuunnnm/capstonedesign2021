@@ -1,7 +1,7 @@
 *🎈 가 배 추 🎈*
 ==============
 #### 단국대학교 컴퓨터공학과 캡스톤디자인  🥔 말하는 감자 🥔  
-
+![SP1.png](SP1.png)
 ## ✨ Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -9,10 +9,11 @@
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/JayDwk"><img src="https://avatars.githubusercontent.com/u/83630504?v=4" width="100px;" alt=""/><br /><sub><b>MinGun Jung</b></sub></a><br /> <td align="center"><a href="https://github.com/kimyeonhong00"><img src="https://avatars.githubusercontent.com/u/63278864?v=4" width="100px;" alt=""/><br /><sub><b>YeonHong Kim</b></sub></a><br /> <td align="center"><a href="https://github.com/dbqls200"><img src="https://avatars.githubusercontent.com/u/87077859?v=4" width="100px;" alt=""/><br /><sub><b>YuBeen Kim</b></sub></a><br /><td align="center"><a href="https://github.com/sssuunnnm"><img src="https://avatars.githubusercontent.com/u/63292816?v=4" width="100px;" alt=""/><br /><sub><b>MinGun Jung</b></sub></a><br />
+    <td align="center"><a href="https://github.com/JayDwk"><img src="https://avatars.githubusercontent.com/u/83630504?v=4" width="100px;" alt=""/><br /><sub><b>DongWoo Kim</b></sub>
+</a><br /> <td align="center"><a href="https://github.com/kimyeonhong00"><img src="https://avatars.githubusercontent.com/u/63278864?v=4" width="100px;" alt=""/><br /><sub><b>YeonHong Kim</b></sub></a><br /> <td align="center"><a href="https://github.com/dbqls200"><img src="https://avatars.githubusercontent.com/u/87077859?v=4" width="100px;" alt=""/><br /><sub><b>YuBeen Kim</b></sub></a><br /><td align="center"><a href="https://github.com/sssuunnnm"><img src="https://avatars.githubusercontent.com/u/63292816?v=4" width="100px;" alt=""/><br /><sub><b>SunMin Lee</b></sub></a><br />
 </table>
   
------
+---
 
 
 ### 가구 배치 프로그램
@@ -33,7 +34,7 @@
 #### 3️⃣ 개발환경
 > 백엔드  :  __*Django*__
 > 
-> 프론트엔드 : __*HTML, CSS*__
+> 프론트엔드 : __*HTML, CSS, JS*__
 > 
 > 
 #
@@ -45,4 +46,7 @@
 
 #### 5️⃣ 실행 화면
 
-![img.png](img.png)
+![1.main.png](1.main.png)
+![2.user_info.png](2.user_info.png)
+![3.room_info.png](3.room_info.png)
+![4.fixed_info.png](4.fixed_info.png)
