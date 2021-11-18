@@ -755,39 +755,39 @@ def show_image1(array1,background):
             back = Image.open(background)
             image_size = back.size[0]
 
-        s = image_size // int((np.shape(array1))[0])
-        # 인덱스
-        # #배열에 가구코드가 하나 이상 들어갔을때를 구분
-        arridx = np.where(array1 == i)
-        if len(arridx[0]) == 1:
-            a = int(arridx[0])
-            b = int(arridx[1])
-        else:
-            a = int(arridx[0][0])
-            b = int(arridx[1][0])
+            s = image_size // int((np.shape(array1))[0])
+            # 인덱스
+            # #배열에 가구코드가 하나 이상 들어갔을때를 구분
+            arridx = np.where(array1 == i)
+            if len(arridx[0]) == 1:
+                a = int(arridx[0])
+                b = int(arridx[1])
+            else:
+                a = int(arridx[0][0])
+                b = int(arridx[1][0])
 
-        # 가구 이미지 크기
-        temp = arridx[0][0]
-        count = 0
-        for j in arridx[0]:
-            if temp == j:
-                count += 1
-        # x 길이
-        f_size_x = count
-        ytemp = arridx[1][0]
-        ycount = 0
-        for i in arridx[1]:
-            if ytemp == i:
-                ycount += 1
-        # y 길이
-        f_size_y = ycount
+            # 가구 이미지 크기
+            temp = arridx[0][0]
+            count = 0
+            for j in arridx[0]:
+                if temp == j:
+                    count += 1
+            # x 길이
+            f_size_x = count
+            ytemp = arridx[1][0]
+            ycount = 0
+            for i in arridx[1]:
+                if ytemp == i:
+                    ycount += 1
+            # y 길이
+            f_size_y = ycount
 
-        # 좌표
-        y = a * s
-        x = b * s
+            # 좌표
+            y = a * s
+            x = b * s
 
-        # 가구 이미지 생성
-        draw = furniture_image.resize(((s * f_size_x), (s * f_size_y)))
-        # 배경 이미지에 가구 이미지 붙여넣기
-        back.paste(draw, (x, y))
-        back.save(image)
+            # 가구 이미지 생성
+            draw = furniture_image.resize(((s * f_size_x), (s * f_size_y)))
+            # 배경 이미지에 가구 이미지 붙여넣기
+            back.paste(draw, (x, y))
+            back.save(image)
