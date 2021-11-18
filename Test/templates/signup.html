@@ -45,39 +45,43 @@
 
               <div class="idForm">
                 이메일(아이디)
-                <input type="email" class="email" placeholder="malgam@gmail.com">
+                <input type="email" name="username" class="email" placeholder="malgam@gmail.com">
                 <input type="submit" class="Ebtn" name="Echeck" value="이메일 확인">
               </div>
 
               <div class="passForm">
                 비밀번호
-                <input type="password" class="pw" value="" placeholder="PW">
+                <input type="password" name="password" class="pw" value="" placeholder="PW">
               </div>
 
               <div class="passCheck">
                 비밀번호 확인
-                <input type="password" class = "pw_ck" value="" placeholder="비밀번호확인">
+                <input type="password" name="confirm" class = "pw_ck" value="" placeholder="비밀번호확인">
                 <!-- <input type="button" name="user_PWcheck" value="비밀번호 재확인"> -->
               </div>
 
               <div class="nameForm">
                 이름<br>
-                <input type="text" class = "name" value="" placeholder="말하는 감자">
+                <input type="text" class = "first_name" value="" placeholder="말하는 감자">
+              </div>
+                <div class="nameForm">
+                성<br>
+                <input type="text" class = "last_name" value="" placeholder="말하는 감자">
               </div>
 
               <div class="genderForm">
                 성별
                 <select name="gender" class = "gender">
                   <option value="">성별선택</option>
-                  <option value="female">여성</option>
-                  <option value="male">남성</option>
+                  <option value="여">여성</option>
+                  <option value="남">남성</option>
                 </select>
               </div>
 
               <div class="birthForm">
                 생년월일<br>
 
-                <input type="hidden" name="memBirth">
+                <input type="hidden" name="year">
                   <select class = "year" id="year">
                     <option> 년 </option>
                   </select>
@@ -85,23 +89,23 @@
 <<<<<<< HEAD
     <div class="occuForm">
       직업<br>
-      <select name="occu" class = "occu">
+      <select name="job" class = "occu">
         <option value="">직업선택</option>
-        <option value="students">초,중,고등학생</option>
-        <option value="univ_students">대학생</option>
-        <option value="office_worker">회사원</option>
-        <option value="freelancer">프리랜서</option>
+        <option value="JOB_STUDENT">학생</option>
+        <option value="JOB_FREELANCE">프리랜서</option>
+        <option value="JOB_NONE">무직</option>
+        <option value="JOB_WORKER">직장인</option>
       </select>
     </div>
     <div class = "next">
       <input type="submit" class="btn" value = "회원가입하기!"></button>
     </div>
 =======
-                  <select class = "month" id="month">
+                  <select class = "month" name="month" id="month">
                     <option> 월 </option>
                   </select>
 
-                  <select class = "day" id="day">
+                  <select class = "day" name="day" id="day">
                     <option> 일 </option>
                   </select>
               </div>
@@ -111,10 +115,10 @@
                 직업<br>
                 <select name="job" class = "job">
                   <option value="">직업선택</option>
-                  <option value="students">초,중,고등학생</option>
-                  <option value="univ_students">대학생</option>
-                  <option value="office_worker">회사원</option>
-                  <option value="freelancer">프리랜서</option>
+                  <option value="JOB_STUDENT">학생</option>
+                    <option value="JOB_FREELANCE">프리랜서</option>
+                    <option value="JOB_NONE">무직</option>
+                    <option value="JOB_WORKER">직장인</option>
                 </select>
               </div>
 
