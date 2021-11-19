@@ -7,7 +7,9 @@
     <link rel = "stylesheet" href="{% static 'css/signup.css' %}">
     <script type="text/javascript" src="{% static 'js/signup.js' %}"> </script>
   </head>
-  <script>
+    
+  <body onload="appendYear(); appendMonth(); appendDay();">
+    <script>
     function appendYear(){
       var date = new Date();
       var year = date.getFullYear();
@@ -37,8 +39,7 @@
       }
     }
   </script>
-  
-  <body>
+    
     <header id="HomeHeader">
       <div class = "container">
         <a href="home">홈</a>
