@@ -3,16 +3,16 @@
 <html lang='ko'>
   <head>
     <meta charset="utf-8">
-    <title> 가배추 로그인 </title>
+    <title>HOME</title>
     <link rel = "stylesheet" href="{% static 'css/login.css' %}">
   </head>
 
   <body>
-    <header id="HomeHeader">
-      <div class ="container">
+    <header id="header">
+      <div class = "container">
         <a href="home">홈</a>
         {% if user.is_authenticated %}
-        <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
+        <a href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
         {% else %}
         <a href="login">로그인</a>
         <a href="signup"> 회원가입</a>
@@ -20,34 +20,27 @@
       </div>
     </header>
 
-    <main id = "MainTitle">
-      <div class = 'mainsection'>
-        <div class = 'box'>
-          <div class = 'titlesection'>
-            <p class = "normal"> 로그인 </p>
-          </div>
+    <h2>로그인</h2>
 
-          <div class = 'loginsection'>
-            <form method="post" action="home" class="loginForm">
-              <div class="idForm">
-                <input type="text" class="id" placeholder="ID(email)">
-              </div>
-        
-              <div class="passForm">
-                <input type="password" class="pw" placeholder="PW">
-              </div>
-        
-              <input type="submit" class="btn" value = "로그인">
-
-              <div class="bottomText">
-                <a href="#">아이디 찾기</a>
-                <a href="#">비밀번호 찾기</a>
-                <a href="signup.html">회원가입</a>
-              </div>
-            </form>
-          </div>
-        </div>
+    <form method="post" action="login" class="loginForm">
+      {% csrf_token %}
+      <div class="idForm">
+        <input name="username" type="text" class="id" placeholder="ID(email)">
       </div>
-    </main>
+
+      <div class="passForm">
+        <input name="password" type="password" class="pw" placeholder="PW">
+      </div>
+
+      <input type="submit" class="btn" value = "로그인하기!">
+
+
+    <div class="bottomText">
+      <a href="#">아이디 찾기</a>
+      <a href="#">비밀번호 찾기</a>
+      <a href="signup">회원가입</a>
+    </div>
+  </form>
+
   </body>
 </html>
