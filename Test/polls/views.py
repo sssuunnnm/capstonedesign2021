@@ -93,39 +93,42 @@ def recommend(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
     kname = []; kname11=[]; kname22=[]; kname33=[]; kname44=[]; kname55=[]; kname66=[]; kname77=[];
     kname1 = request.POST.getlist('Kname1[]')
-    if (len(kname1) > 1):
+    if (len(kname1) == 1):
         kname11 = list(map(int, kname1[0].split(',')))
-        kname.append(kname11)
-
+        if(kname11[0] != 0):
+            kname.append(kname11)
     kname2 = request.POST.getlist('Kname2[]')
-    if (len(kname2) > 1):
+    if (len(kname2) == 1):
         kname22 = list(map(int, kname2[0].split(',')))
-        kname.append(kname22)
+        if (kname22[0] != 0):
+            kname.append(kname22)
     kname3 = request.POST.getlist('Kname3[]')
-    if (len(kname3) > 1):
+    if (len(kname3) == 1):
         kname33 = list(map(int, kname3[0].split(',')))
-        kname.append(kname33)
-
+        if (kname33[0] != 0):
+            kname.append(kname33)
     kname4 = request.POST.getlist('Kname4[]')
-    if (len(kname4) > 1):
+    if (len(kname4) == 1):
         kname44 = list(map(int, kname4[0].split(',')))
-        kname.append(kname44)
-
+        if (kname44[0] != 0):
+            kname.append(kname44)
     kname5 = request.POST.getlist('Kname5[]')
-    if (len(kname5) > 1):
+    if (len(kname5) == 1):
         kname55 = list(map(int, kname5[0].split(',')))
-        kname.append(kname55)
-
+        if (kname55[0] != 0):
+            kname.append(kname55)
     kname6 = request.POST.getlist('Kname6[]')
-    if (len(kname6) > 1):
+    if (len(kname6) == 1):
         kname66 = list(map(int, kname6[0].split(',')))
-        kname.append(kname66)
-
+        if (kname66[0] != 0):
+            kname.append(kname66)
     kname7 = request.POST.getlist('Kname7[]')
-    if (len(kname7) > 1):
+    if (len(kname7) == 1):
         kname77 = list(map(int, kname7[0].split(',')))
-        kname.append(kname77)
+        if (kname77[0] != 0):
+            kname.append(kname77)
     array1 = main.fixgenerate(chk_fur1, kname)
+
     return render(request, 'recommend.html', {'array1': array1})
 
 def home2(request):
