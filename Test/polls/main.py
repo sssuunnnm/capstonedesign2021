@@ -726,7 +726,7 @@ def addgenerate(chk):
     return array1
 
 
-def show_image1(array1,background):
+def show_image1(array1,i,background):
     # 2차원 배열, 텍스트, 가구 코드, 배경 이미지
     # 배열에 가구코드가 있을 시 실행
     for i in range(1, 11):
@@ -738,14 +738,14 @@ def show_image1(array1,background):
             furniture_image = Image.open("closet.png")
         elif i == 4:
             furniture_image = Image.open("wmachine.png")
-        # elif i == 5:
-        # furniture_image = Image.open("화장실")
+        elif i == 5:
+            furniture_image = Image.open("restroom.png")
         elif i == 6:
             furniture_image = Image.open("storage.png")
         elif i == 7:
             furniture_image = Image.open("refri.png")
-        # elif i == 8:
-        # furniture_image = Image.open("주방")
+        elif i == 8:
+            furniture_image = Image.open("kitchen")
         # elif i == 9:
         # furniture_image = Image.open("현관")
         elif i == 10:
