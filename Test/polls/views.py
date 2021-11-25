@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-# from .models import user_info,file
 from . import main
 import random
 from django.views.decorators.csrf import csrf_exempt
@@ -10,10 +9,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import user_info
+from .models import Test
+from .models import Rating
 
 array1 = np.zeros((20, 20))
-
-
+username =''
+test = Test()
+rating = Rating()
 def home(request):
     return render(request, 'home.html')
 
@@ -24,21 +26,15 @@ def info1(request):
 
 @csrf_exempt
 def info2(request):
-    # data=user_info()
-    # data.age=request.POST['age']
-    # data.job=request.POST['job']
-    # data.gender=request.POST['gender']
+
     return render(request, 'info2.html')
 
 
 def info3(request):
-    # user_info.room_name=request.GET.get('Rname')
-    # shape=request.GET.get('chk_shape')
 
-    # print("shape",shape)
     return render(request, 'info3.html')
 
-
+'''
 def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
     kname = []
@@ -81,27 +77,76 @@ def info4(request):
     print("fix")
     print(array1)
     return render(request, 'info4.html', {'array1': array1})
-
+'''
 
 def recommend(request):
-    msize = request.POST.get('size')
+    '''msize = request.POST.get('size')
     chk_fur2 = request.POST.getlist('chk_fur2[]')
     array1 = main.addgenerate(chk_fur2)
-    print("add")
-    print(array1)
     back = Image.new('RGB', (400, 400), '#AAAAAA')
     back.save("002.png")
     for i in range(1, 10):
         main.show_image1(array1, i, "002.png")
     image = Image.open("002.png")
     image.save('추천.png')
-    image.show()
+    image.show()'''
+    chk_fur1 = request.POST.getlist('chk_fur1[]')
+    kname = []; kname11=[]; kname22=[]; kname33=[]; kname44=[]; kname55=[]; kname66=[]; kname77=[];
+    kname1 = request.POST.getlist('Kname1[]')
+    if (len(kname1) > 1):
+        kname11 = list(map(int, kname1[0].split(',')))
+        kname.append(kname11)
+
+    kname2 = request.POST.getlist('Kname2[]')
+    if (len(kname2) > 1):
+        kname22 = list(map(int, kname2[0].split(',')))
+        kname.append(kname22)
+    kname3 = request.POST.getlist('Kname3[]')
+    if (len(kname3) > 1):
+        kname33 = list(map(int, kname3[0].split(',')))
+        kname.append(kname33)
+
+    kname4 = request.POST.getlist('Kname4[]')
+    if (len(kname4) > 1):
+        kname44 = list(map(int, kname4[0].split(',')))
+        kname.append(kname44)
+
+    kname5 = request.POST.getlist('Kname5[]')
+    if (len(kname5) > 1):
+        kname55 = list(map(int, kname5[0].split(',')))
+        kname.append(kname55)
+
+    kname6 = request.POST.getlist('Kname6[]')
+    if (len(kname6) > 1):
+        kname66 = list(map(int, kname6[0].split(',')))
+        kname.append(kname66)
+
+    kname7 = request.POST.getlist('Kname7[]')
+    if (len(kname7) > 1):
+        kname77 = list(map(int, kname7[0].split(',')))
+        kname.append(kname77)
+    array1 = main.fixgenerate(chk_fur1, kname)
     return render(request, 'recommend.html', {'array1': array1})
+
+def home2(request):
+    input = request.POST['chk_info']
+    if input == '1':
+        rating1 = 1
+    elif input == '2':
+        rating1 =2
+    elif input == '3':
+        rating1 =3
+    elif input == '4':
+        rating1 =4
+    elif input == '5':
+        rating1 =5
+    test.rating = rating1
+    test.save()
+    return render(request, 'home.html')
 
 
 def image(request):
     return render
-
 
 # 회원 가입
 def signup(request):
@@ -126,6 +171,7 @@ def signup(request):
             userInfo.save()
             # 로그인 한다
             auth.login(request, user)
+            {'username': username}
             return redirect('/')
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     return render(request, 'signup.html')
@@ -141,11 +187,12 @@ def login(request):
 
         # 해당 username과 password와 일치하는 user 객체를 가져온다.
         user = auth.authenticate(request, username=username, password=password)
-
+        {'username': username}
         # 해당 user 객체가 존재한다면
         if user is not None:
             # 로그인 한다
             auth.login(request, user)
+            rating.user_id = username
             return redirect('/')
         # 존재하지 않는다면
         else:

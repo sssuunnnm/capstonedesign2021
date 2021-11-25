@@ -30,7 +30,7 @@ class user_info(models.Model):
     job = models.CharField(choices=JOB_CHOICES, max_length=20, db_column='직업')
     room_name = models.CharField(max_length=50, db_column='방이름', null=True)
     room_size = models.IntegerField(db_column='방크기', null=True)
-
+    rating = models.IntegerField(db_column='rating', max_length=10)
 
 class Fixed_info(models.Model):
     user = models.ForeignKey(User, default='', on_delete=models.CASCADE)
@@ -63,3 +63,20 @@ class Add_info(models.Model):
 
 class file(models.Model):
     photo = models.ImageField(upload_to="image")
+
+class Rating(models.Model):
+    user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
+    furniture = models.IntegerField(max_length=10, db_column='furniture')
+    rating = models.IntegerField(max_length=10, db_column='rating')
+    rtype = models.CharField(max_length=50, db_column='type')
+    tag = models.IntegerField(max_length=10,db_column='tag')
+
+
+class Test(models.Model):
+    furniture = models.ForeignKey("rating", related_name='furniture', on_delete=models.CASCADE, db_column='furniture')
+    gname = models.CharField(max_length=50, db_column='name')
+    rtype= models.CharField(max_length=50, db_column='type')
+    tag = models.IntegerField(max_length=10, db_column='tag')
+    rating = models.IntegerField(max_length=10, db_column='rating')
+    members = models.IntegerField(max_length=10, db_column='memebers')
+

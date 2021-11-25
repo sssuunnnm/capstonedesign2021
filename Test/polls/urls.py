@@ -10,6 +10,7 @@ urlpatterns =[
     url(r'^info4$',views.info4),
     url(r'signup',views.signup),
     url(r'logout', views.logout),
+    url(r'login',views.login),
     url(r'recommend/',views.recommend),
     url(r'info1/info2',views.info2),
     url(r'info1/signup',views.signup),
@@ -131,7 +132,6 @@ urlpatterns =[
     url(r'info2/info1/recommend/logout', views.logout),
     url(r'info2/info3/recommend/logout', views.logout),
     url(r'info3/info4/recommend/logout', views.logout),
-
 
 ]
 
