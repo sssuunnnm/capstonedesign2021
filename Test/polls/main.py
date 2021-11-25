@@ -729,6 +729,7 @@ def addgenerate(chk):
 def show_image1(array1,background):
     # 2차원 배열, 텍스트, 가구 코드, 배경 이미지
     # 배열에 가구코드가 있을 시 실행
+    print(array1)
     for i in range(1, 11):
         if i == 1:
             furniture_image = Image.open("bed.png")
@@ -738,8 +739,8 @@ def show_image1(array1,background):
             furniture_image = Image.open("closet.png")
         elif i == 4:
             furniture_image = Image.open("wmachine.png")
-        # elif i == 5:
-        # furniture_image = Image.open("화장실")
+        elif i == 5:
+            furniture_image = Image.open("restroom.png")
         elif i == 6:
             furniture_image = Image.open("storage.png")
         elif i == 7:
@@ -755,16 +756,16 @@ def show_image1(array1,background):
             back = Image.open(background)
             image_size = back.size[0]
 
-        s = image_size // int((np.shape(array1))[0])
-        # 인덱스
-        # #배열에 가구코드가 하나 이상 들어갔을때를 구분
-        arridx = np.where(array1 == i)
-        if len(arridx[0]) == 1:
-            a = int(arridx[0])
-            b = int(arridx[1])
-        else:
-            a = int(arridx[0][0])
-            b = int(arridx[1][0])
+            s = image_size // int((np.shape(array1))[0])
+            # 인덱스
+            # #배열에 가구코드가 하나 이상 들어갔을때를 구분
+            arridx = np.where(array1 == i)
+            if len(arridx[0]) == 1:
+                a = int(arridx[0])
+                b = int(arridx[1])
+            else:
+                a = int(arridx[0][0])
+                b = int(arridx[1][0])
 
             # 가구 이미지 크기
             temp = arridx[0][0]
@@ -776,8 +777,8 @@ def show_image1(array1,background):
             f_size_x = count
             ytemp = arridx[1][0]
             ycount = 0
-            for i in arridx[1]:
-                if ytemp == i:
+            for j in arridx[1]:
+                if ytemp == j:
                     ycount += 1
             # y 길이
             f_size_y = ycount
