@@ -1,43 +1,55 @@
-* {padding: 0; margin: 0;}
-* {background-color:#e8f5e9; font-family:  "Noto Sans CJK KR"}
+* {
+  background-color:#ffffff;
+  font-family:  "Noto Sans CJK KR"
+}
 
-/* (반응형) 홈 화면 ~1280 */
-/*@media (max-width:1280px) {body {background-color:#bbdefb}}
-@media (max-width:1024px) {body {background-color:#90caf9}}
-@media (max-width:768px) {body {background-color:#64b5f6}}
-@media (max-width:600px) {body {background-color:#42a5f5}}
-@media (max-width:480px) {body {background-color:#2196f3}}*/
+/* 우측 상단바 */
+.container {
+  width : 1200px;
+  margin : 0 auto;
+  background : inherit;
+  text-align :right;
+}
 
-/* (반응형)오른쪽 상단바 */
-.container{width:1200px; margin:0 auto; background:inherit; text-align:right;}
-.container a{display:inline-block; text-decoration:none; color:#212121; padding: 5px 0 0 10px; transition: all 0.5s ease;}
-.container a:hover {color:#f44336; }
-@media (max-width : 1280px) {.container {width:90%; padding:0 15px}}
+.container a {
+  display : inline-block;
+  text-decoration : none;
+  color : #212121;
+  padding : 5px 0 0 10px;
+  transition: all 0.5s ease;
+}
+
+.container a:hover {color : #268623}
+
+@media (max-width : 1280px) {
+  .container {
+      width : 90%;
+      padding : 0 15px
+  }
+}
 
 /* 내용 가운데 정렬 */
-body {text-align: center}
+body {
+  text-align: center
+}
 
+/* 사이트 로고 */
+.logoimg {
+  text-align : center;
+}
+
+/* 본문 */
 .loginForm {
-  position:absolute;
+  display: inline-block;
   width:300px;
   height:400px;
   padding: 30px, 20px;
-  background-color:#FFFFFF;
+  background-color:#e8f5e9;
   text-align:center;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
   border-radius: 15px;
-  /* transition: 0.3s ease; */
 }
 
-.loginForm h2{
-  text-align: center;
-  margin: 30px;
-  background-color: inherit;
-
-}
-
+/* 아이디, 비밀번호 입력칸 */
 .idForm{
   border-bottom: 2px solid #adadad;
   margin: 30px;
@@ -52,7 +64,7 @@ body {text-align: center}
   background-color: inherit;
 }
 
-.id {
+.email {
   width: 100%;
   border:none;
   outline:none;
@@ -72,6 +84,8 @@ body {text-align: center}
   background: none;
 }
 
+
+/* 로그인하기 버튼 */
 .btn {
   position:relative;
   left:40%;
@@ -87,17 +101,19 @@ body {text-align: center}
   border:none;
   cursor:pointer;
   display:inline;
-
 }
 
 .btn:hover {
   background-position: right;
   /* transition: 0.3s ease; */
-
 }
 
+/* 아이디 찾기 비밀번호 찾기 회원가입*/
 .bottomText {
-  text-align: center;   background-color: inherit;
-
+  text-align : center;
+  background-color : inherit;
 }
-.bottomText a{text-decoration: none;   background-color: inherit;}
+.bottomText a {
+  text-decoration : none;
+  background-color : inherit;
+}
