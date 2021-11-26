@@ -1,22 +1,26 @@
 * {
     background-color:#ffffff;
-    font-family:  "Noto Sans CJK KR"}
+    font-family:  "Noto Sans CJK KR"
+}
 
 /* 우측 상단바 */
 .container {
     width : 1200px;
     margin : 0 auto;
     background : inherit;
-    text-align :right;}
+    text-align :right;
+}
 
 .container a {
     display : inline-block;
     text-decoration : none;
     color : #212121;
     padding : 5px 0 0 10px;
-    transition: all 0.5s ease;}
+    transition: all 0.5s ease;
+}
 
-.container a:hover {color : #268623}
+.container a:hover {
+    color : #268623}
 
 @media (max-width : 1280px){
     .container {
@@ -35,33 +39,10 @@
     text-align : center;
 }
 
-.imgCollage {margin:auto;  text-align: center;}
-@media screen and (min-width: 600px) {
-	.imgCollage {
-		display : flex;
-        -webkit-box-flex : auto;
-        -moz-display:flex;
-        -ms-display:flex;
-		flex-wrap:wrap;
-        -webkit-flex-wrap:wrap;
-        -moz-flex-wrap:wrap;
-        -ms-flex-wrap:wrap;
-	}
-	.imgCollage > span { padding: 4px ; }
-	.imgCollage > span > .imageblock:not(:last-child) { vertical-align: baseline; }
-    .imgCollage .imageblock { text-align:center; padding:0; }
-	.imgCollage img { box-shadow: none; }
-}
-@media screen and (max-width: 599px) {
-	.imgCollage > span { padding: 0; width: 100% !important; }
-	.imgCollage .imageblock { padding: 16px 0; }
-	.imgCollage  > span:first-of-type .imageblock:first-of-type { padding-top: 8px; }
-	.imgCollage  > span:last-of-type .imageblock:last-of-type { padding-bottom: 4px; }
-}
-
 .box {
     width : 500px;
     margin : auto;
+    padding-bottom: 10px;
 
     text-align: left;
 
@@ -74,25 +55,30 @@
 .button{
     position : relative;
     top : 10px;
-    text-align : left;
-    padding-left : 10px}
+    text-align : center;
+    padding-bottom : 10px;
+}
 
-.button button{
+.btn{
     display : inline;
-    width : 160px;
-    height : 40px;
+    width : 100px;
+    height : 30px;
     color : #ffffff;
     background : #7cb342;
     font-size : 16px;
     border : none;
     border-radius : 20px;
     box-shadow : 0 4px 16px rgba(105,147,6,0.3);
-    transition : 0.3s;}
+    transition : 0.3s;
+}
 
-.button button:focus {outline : 0;}
+.btn:focus {
+    outline : 0;
+}
 
-.button button:hover {
+.btn:hover {
     background : rgba(159, 201, 60, 0.9);
     cursor : pointer;
-    box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6); }
+    box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6);
+}
   
