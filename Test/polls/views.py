@@ -9,10 +9,13 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import user_info
+from .models import user_info, file, Test, Rating
 
 array1 = np.zeros((20, 20))
 username=''
+test1 = Test()
+rating1 = Rating()
+furniture_list = ['kitchen', 'front', 'refri','restroom','bed','closet','washer']
 
 def home(request):
     return render(request, 'home.html')
@@ -41,6 +44,11 @@ def info3(request):
 
 def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
+    #아무 가구도 없을 때
+    if 'none' in chk_fur1:
+        #수정필요
+        array1 = main.fixgenerate(furniture_list,'인덱스리스트수정필요')
+        return render(request, 'info4.html', {'array1': array1})
     print(chk_fur1)
     kname = []
     if 'kitchen' in chk_fur1:
@@ -86,13 +94,19 @@ def info4(request):
 
 
 def recommend(request):
-    msize = request.POST.get('size')
-    '''chk_fur2 = request.POST.getlist('chk_fur2[]')
+    '''msize = request.POST.get('size')
+    chk_fur2 = request.POST.getlist('chk_fur2[]')
     array1 = main.addgenerate(chk_fur2)
     print("add")
+<<<<<<< Updated upstream
     print(array1)'''
     back = Image.open("back.png")
     back.save("back1.png")
+=======
+    print(array1)
+    back = Image.new('RGB', (400, 400), '#AAAAAA')
+    back.save("002.png")'''
+>>>>>>> Stashed changes
     main.show_image1(array1, "back1.png")
     image = Image.open("back1.png")
     image.save('추천.png')
@@ -134,7 +148,6 @@ def signup(request):
 
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     return render(request, 'signup.html')
-
 
 # 로그인
 def login(request):
