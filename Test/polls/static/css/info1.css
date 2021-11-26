@@ -7,14 +7,16 @@
     width : 1200px;
     margin : 0 auto;
     background : inherit;
-    text-align :right;}
+    text-align :right;
+}
 
 .container a {
     display : inline-block;
     text-decoration : none;
     color : #212121;
     padding : 5px 0 0 10px;
-    transition: all 0.5s ease;}
+    transition: all 0.5s ease;
+}
 
 .container a:hover {color : #268623}
 
@@ -76,4 +78,3 @@
     cursor : pointer;
     box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6);
 }
-  
