@@ -23,8 +23,8 @@
 
 @media (max-width : 1280px) {
   .container {
-      width : 90%;
-      padding : 0 15px
+    width : 90%;
+    padding : 0 15px
   }
 }
 
@@ -41,7 +41,7 @@ body {
 /* 본문 */
 .loginForm {
   display: inline-block;
-  width:300px;
+  width:350px;
   height:400px;
   padding: 30px, 20px;
   background-color:#e8f5e9;
@@ -96,6 +96,7 @@ body {
   background: linear-gradient(125deg,#7cb342,#7cb388,#7cb342);
   background-position: left;
   background-size: 200%;
+  border-radius : 10px;
   color:white;
   font-weight: bold;
   border:none;
@@ -113,6 +114,7 @@ body {
   text-align : center;
   background-color : inherit;
 }
+
 .bottomText a {
   text-decoration : none;
   background-color : inherit;
