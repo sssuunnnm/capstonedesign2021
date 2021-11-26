@@ -91,11 +91,10 @@ def recommend(request):
     array1 = main.addgenerate(chk_fur2)
     print("add")
     print(array1)'''
-    back = Image.new('RGB', (400, 400), '#AAAAAA')
-    back.save("002.png")
+    back = Image.open("back.png")
+    back.save("back1.png")
     main.show_image1(array1, "back1.png")
     image = Image.open("back1.png")
-
     image.save('추천.png')
     image.show()
     return render(request, 'recommend.html', {'array1': array1})
