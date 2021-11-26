@@ -28,14 +28,26 @@
       <div class = 'mainsection'>
         <div class = 'mainimg'>
           <div class = 'img'>
-            <img src="/static/img/grid_test.png" width ="200px" height="200px">
+            <img src="/static/img/001.png" width ="200px" height="200px">
           </div>
-          <div class = 'text'>
-            <p>
-              <!-- js로 이미지 슬라이드<br>
-              반응형 grid 넣기 -->
-            </p>
-          </div>
+          
+          <script>
+              var myImage = document.getElementById("mainImage");
+              var imageArray = ["/static/img/001.png", "/static/img/001.png","/static/img/002.png","/static/img/003.png","/static/img/005.png"];
+              var imageIndex = 0;
+
+              function changeImage(){
+                  myImage.setAttribute("src", imageArray[imageIndex]);
+                  imageIndex++;
+
+                  if(imageIndex >= imageArray.length){
+                      imageIndex = 0;
+                  }
+              }
+
+              setInterval(changeImage, 1500);
+          </script>
+          
         </div>
 
         <div class = 'box'>
