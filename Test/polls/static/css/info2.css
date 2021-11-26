@@ -1,22 +1,27 @@
 * {
     background-color:#ffffff;
-    font-family:  "Noto Sans CJK KR"}
+    font-family:  "Noto Sans CJK KR"
+}
 
 /* 우측 상단바 */
 .container {
     width : 1200px;
     margin : 0 auto;
     background : inherit;
-    text-align :right;}
+    text-align :right;
+}
 
 .container a {
     display : inline-block;
     text-decoration : none;
     color : #212121;
     padding : 5px 0 0 10px;
-    transition: all 0.5s ease;}
+    transition: all 0.5s ease;
+}
 
-.container a:hover {color : #268623}
+.container a:hover {
+    color : #268623
+}
 
 @media (max-width : 1280px){
     .container {
@@ -76,4 +81,3 @@
     cursor : pointer;
     box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6);
 }
-  
