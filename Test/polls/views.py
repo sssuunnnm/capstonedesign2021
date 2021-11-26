@@ -12,7 +12,7 @@ from django.contrib import auth
 from .models import user_info
 
 array1 = np.zeros((20, 20))
-
+username=''
 
 def home(request):
     return render(request, 'home.html')
@@ -41,42 +41,44 @@ def info3(request):
 
 def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
+    print(chk_fur1)
     kname = []
-    kname1 = request.POST.getlist('Kname1[]')
-    if (len(kname1) == 1):
-        kname11 = list(map(int, kname1[0].split(',')))
-        kname.append(kname11)
+    if 'kitchen' in chk_fur1:
+        kname1 = request.POST.getlist('Kname1[]')
+        if (len(kname1) == 1):
+            kname11 = list(map(int, kname1[0].split(',')))
+            kname.append(kname11)
+    if 'front' in chk_fur1:
+        kname2 = request.POST.getlist('Kname2[]')
+        if (len(kname2) == 1):
+            kname22 = list(map(int, kname2[0].split(',')))
+            kname.append(kname22)
 
-    kname2 = request.POST.getlist('Kname2[]')
-    if (len(kname2) == 1):
-        kname22 = list(map(int, kname2[0].split(',')))
-        kname.append(kname22)
-    kname3 = request.POST.getlist('Kname3[]')
-    if (len(kname3) == 1):
-        kname33 = list(map(int, kname3[0].split(',')))
-        kname.append(kname33)
-
-    kname4 = request.POST.getlist('Kname4[]')
-    if (len(kname4) == 1):
-        kname44 = list(map(int, kname4[0].split(',')))
-        kname.append(kname44)
-
-    kname5 = request.POST.getlist('Kname5[]')
-    if (len(kname5) == 1):
-        kname55 = list(map(int, kname5[0].split(',')))
-        kname.append(kname55)
-
-    kname6 = request.POST.getlist('Kname6[]')
-    if (len(kname6) == 1):
-        kname66 = list(map(int, kname6[0].split(',')))
-        kname.append(kname66)
-
-    kname7 = request.POST.getlist('Kname7[]')
-    if (len(kname7) == 1):
-        kname77 = list(map(int, kname7[0].split(',')))
-        kname.append(kname77)
-        print(kname77[0])
-        print(type(kname77[0]))
+    if 'refri' in chk_fur1:
+        kname3 = request.POST.getlist('Kname3[]')
+        if (len(kname3) == 1):
+            kname33 = list(map(int, kname3[0].split(',')))
+            kname.append(kname33)
+    if 'restroom' in chk_fur1:
+        kname4 = request.POST.getlist('Kname4[]')
+        if (len(kname4) == 1):
+            kname44 = list(map(int, kname4[0].split(',')))
+            kname.append(kname44)
+    if 'bed' in chk_fur1:
+        kname5 = request.POST.getlist('Kname5[]')
+        if (len(kname5) == 1):
+            kname55 = list(map(int, kname5[0].split(',')))
+            kname.append(kname55)
+    if 'closet' in chk_fur1:
+        kname6 = request.POST.getlist('Kname6[]')
+        if (len(kname6) == 1):
+            kname66 = list(map(int, kname6[0].split(',')))
+            kname.append(kname66)
+    if 'washer' in chk_fur1:
+        kname7 = request.POST.getlist('Kname7[]')
+        if (len(kname7) == 1):
+            kname77 = list(map(int, kname7[0].split(',')))
+            kname.append(kname77)
     array1 = main.fixgenerate(chk_fur1, kname)
     print("fix")
     print(array1)
@@ -128,6 +130,7 @@ def signup(request):
                 userInfo.save()
                 # 로그인 한다
                 auth.login(request, user)
+                {'username':username}
                 return redirect('/')
 
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
@@ -149,6 +152,7 @@ def login(request):
         if user is not None:
             # 로그인 한다
             auth.login(request, user)
+            {'username': username}
             return redirect('/')
         # 존재하지 않는다면
         else:
