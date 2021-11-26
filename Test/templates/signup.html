@@ -55,74 +55,81 @@
           </div>
 
           <div class = 'signupsection'>
-    <form method="POST" action="signup" class="signupForm">
-        {% csrf_token %}
-      <h2>회원가입</h2>
-      <div class="idForm">
-        이메일(아이디)
-        <input type="email" name="username"class="email" placeholder="email@gmail.com">
+            <form method="POST" action="signup" class="signupForm">
+              {% csrf_token %}
+              <h2>회원가입</h2>
+              <div class="idForm">
+                이메일(아이디)
+                <input type="email" name="username"class="email" placeholder="email@gmail.com">
+              </div>
+      
+              <input type="submit" class="Ebtn" name="Echeck" value="이메일 확인">
+
+              <div class="passForm">
+                비밀번호
+                <input type="password" name="password" class = "pw" value="" placeholder="비밀번호">
+              </div>
+
+              <div class="passCheck">
+                비밀번호 확인
+                <input type="password" name="confirm" class = "pw_ck" value="" placeholder="비밀번호확인">
+                <!-- <input type="button" name="user_PWcheck" value="비밀번호 재확인"> -->
+
+              </div>
+
+              <div class="nameForm">
+                이름<br>
+                <input name="first_name" type="text" class = "first_name" value="" placeholder="">
+              </div>
+      
+              <div class="nameForm">
+                성<br>
+                <input name="last_name" type="text" class = "last_name" value="" placeholder="">
+              </div>
+      
+              <div class="genderForm">
+                성별
+                <select name="gender" class = "gender">
+                  <option value="">성별선택</option>
+                  <option value="여">여성</option>
+                  <option value="남">남성</option>
+                </select>
+              </div>
+
+              <div class="birthForm">
+                생년월일<br>
+                <input type="hidden" name="year">
+                <select class = "year" id="year">
+                  <option> 년 </option>
+                </select>
+                
+                <select class = "month" name="month" id="month">
+                              <option> 월 </option>
+                </select>
+                
+                <select class = "day" name="day" id="day">
+                              <option> 일 </option>
+                </select>
+              </div>
+
+              <div class="occuForm">
+                직업<br>
+                <select name="job" class = "occu">
+                  <option value="">직업선택</option>
+                  <option value="JOB_STUDENT">학생</option>
+                  <option value="JOB_FREELANCE">프리랜서</option>
+                  <option value="JOB_NONE">무직</option>
+                  <option value="JOB_WORKER">직장인</option>
+                </select>
+              </div>
+
+              <div class = "next">
+                <input type="submit" class="btn" value = "회원가입하기!"></button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <input type="submit" class="Ebtn" name="Echeck" value="이메일 확인">
-
-      <div class="passForm">
-      비밀번호
-      <input type="password" name="password" class = "pw" value="" placeholder="비밀번호">
-    </div>
-
-    <div class="passCheck">
-      비밀번호 확인
-      <input type="password" name="confirm" class = "pw_ck" value="" placeholder="비밀번호확인">
-      <!-- <input type="button" name="user_PWcheck" value="비밀번호 재확인"> -->
-
-    </div>
-
-    <div class="nameForm">
-      이름<br>
-      <input name="first_name" type="text" class = "first_name" value="" placeholder="">
-    </div>
-    <div class="nameForm">
-      성<br>
-      <input name="last_name" type="text" class = "last_name" value="" placeholder="">
-    </div>
-    <div class="genderForm">
-      성별
-      <select name="gender" class = "gender">
-        <option value="">성별선택</option>
-        <option value="여">여성</option>
-        <option value="남">남성</option>
-      </select>
-    </div>
-
-    <div class="birthForm">
-      생년월일<br>
-      <input type="hidden" name="year">
-                  <select class = "year" id="year">
-                    <option> 년 </option>
-                  </select>
-      <select class = "month" name="month" id="month">
-                    <option> 월 </option>
-                  </select>
-      <select class = "day" name="day" id="day">
-                    <option> 일 </option>
-                  </select>
-    </div>
-
-    <div class="occuForm">
-      직업<br>
-      <select name="job" class = "occu">
-        <option value="">직업선택</option>
-        <option value="JOB_STUDENT">학생</option>
-        <option value="JOB_FREELANCE">프리랜서</option>
-        <option value="JOB_NONE">무직</option>
-        <option value="JOB_WORKER">직장인</option>
-      </select>
-    </div>
-
-    <div class = "next">
-      <input type="submit" class="btn" value = "회원가입하기!"></button>
-    </div>
-
-  </form>
-
-</body>
+    </main>
+  </body>
 </html>
