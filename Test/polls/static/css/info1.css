@@ -1,79 +1,121 @@
 * {
-    background-color:#ffffff;
-    font-family:  "Noto Sans CJK KR"}
+  background-color:#ffffff;
+  font-family:  "Noto Sans CJK KR"
+}
 
 /* 우측 상단바 */
 .container {
-    width : 1200px;
-    margin : 0 auto;
-    background : inherit;
-    text-align :right;}
+  width : 1200px;
+  margin : 0 auto;
+  background : inherit;
+  text-align :right;
+}
 
 .container a {
-    display : inline-block;
-    text-decoration : none;
-    color : #212121;
-    padding : 5px 0 0 10px;
-    transition: all 0.5s ease;}
+  display : inline-block;
+  text-decoration : none;
+  color : #212121;
+  padding : 5px 0 0 10px;
+  transition: all 0.5s ease;
+}
 
 .container a:hover {color : #268623}
 
-@media (max-width : 1280px){
-    .container {
-        width : 90%;
-        padding : 0 15px
-    }
+@media (max-width : 1280px) {
+  .container {
+    width : 90%;
+    padding : 0 15px
+  }
+}
+
+/* 내용 가운데 정렬 */
+body {
+  text-align: center
 }
 
 /* 사이트 로고 */
 .logoimg {
-    text-align : center;
+  text-align : center;
 }
 
 /* 본문 */
-.mainsection{
-    width : 300px;
-    margin : auto;
-    text-align : center;
+.loginForm {
+  display: inline-block;
+  width:350px;
+  height:400px;
+  padding: 30px, 20px;
+  background-color:#e8f5e9;
+  text-align:center;
+  border-radius: 15px;
 }
 
-.selectForm{
-    text-align : left;
-    width : 180px;
-    margin : auto;
+/* 아이디, 비밀번호 입력칸 */
+.idForm{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
 }
 
-.selectForm p{
-    font-size : 18px;
+.passForm{
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+  background-color: inherit;
 }
 
-/* 버튼 */
-.button {
-    position : relative;
-    top : 20px;
-    text-align: center;
+.email {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
 }
 
+.pw {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
+/* 로그인하기 버튼 */
 .btn {
-    display : inline;
-    width : 100px;
-    height : 30px;
-    color : #ffffff;
-    background : #7cb342;
-    font-size : 14px;
-    border : none;
-    border-radius : 20px;
-    box-shadow : 0 4px 16px rgba(105,147,6,0.3);
-    transition : 0.3s;
-}
-
-.btn:focus {
-    outline : 0;
+  position:relative;
+  left:40%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  width:80%;
+  height:40px;
+  background: linear-gradient(125deg,#7cb342,#7cb388,#7cb342);
+  background-position: left;
+  background-size: 200%;
+  border-radius : 10px;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  display:inline;
 }
 
 .btn:hover {
-    background : rgba(159, 201, 60, 0.9);
-    cursor : pointer;
-    box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6);
+  background-position: right;
+  /* transition: 0.3s ease; */
 }
-  
+
+/* 아이디 찾기 비밀번호 찾기 회원가입*/
+.bottomText {
+  text-align : center;
+  background-color : inherit;
+}
+
+.bottomText a {
+  text-decoration : none;
+  background-color : inherit;
+}
