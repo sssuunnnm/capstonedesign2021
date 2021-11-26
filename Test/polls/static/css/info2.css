@@ -20,13 +20,13 @@
 }
 
 .container a:hover {
-    color : #268623
+    color : #268623;
 }
 
-@media (max-width : 1280px){
+@media (max-width : 1280px) {
     .container {
         width : 90%;
-        padding : 0 15px
+        padding : 0 15px;
     }
 }
 
@@ -37,19 +37,48 @@
 
 /* 본문 */
 .mainsection{
-    width : 300px;
+    width : 600px;
     margin : auto;
     text-align : center;
 }
 
 .selectForm{
-    text-align : left;
-    width : 180px;
+    text-align : center;
+    width : 500px;
     margin : auto;
 }
 
 .selectForm p{
     font-size : 18px;
+}
+
+.box {
+    width : 500px;
+    margin : auto;
+
+    text-align: left;
+
+    display : grid;
+    grid-template-columns: 3fr 1fr 1fr;
+}
+
+.img {
+    position : relative;
+}
+
+.fixedfurselect {
+    line-height: 30px;
+    position : relative;
+    font-size: 18px;
+}
+
+.fixedfurloc {
+    line-height: 30px;
+    position : relative;
+}
+
+.numbox {
+    height : 18px;
 }
 
 /* 버튼 */
