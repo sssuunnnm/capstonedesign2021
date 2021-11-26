@@ -1,49 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
 <html lang='ko'>
   <head>
     <meta charset="utf-8">
-    <title>가배추 회원가입</title>
+    <title> 가배추 회원가입 </title>
     <link rel = "stylesheet" href="{% static 'css/signup.css' %}">
-    <script type="text/javascript" src="{% static 'js/signup.js' %}"> </script>
   </head>
 
   <body onload="appendYear(); appendMonth(); appendDay();">
     <script>
-    function appendYear(){
-      var date = new Date();
-      var year = date.getFullYear();
-      var selectValue = document.getElementById("year");
-      var optionIndex = 0;
+      function appendYear(){
+        var date = new Date();
+        var year = date.getFullYear();
+        var selectValue = document.getElementById("year");
+        var optionIndex = 0;
 
-      for(var i=year-100;i<=year;i++){
-          selectValue.add(new Option(i+"년",i),optionIndex++);
+        for(var i=year-100;i<=year;i++){
+            selectValue.add(new Option(i+"년",i), optionIndex++);
+        }
       }
-    }
 
-    function appendMonth(){
-      var selectValue = document.getElementById("month");
-      var optionIndex = 0;
+      function appendMonth(){
+        var selectValue = document.getElementById("month");
+        var optionIndex = 0;
 
-      for(var i=1;i<=12;i++){
-          selectValue.add(new Option(i+"월",i),optionIndex++);
+        for(var i=1; i<=12; i++){
+            selectValue.add(new Option(i+"월",i), optionIndex++);
+        }
       }
-    }
 
-    function appendDay(){
-      var selectValue = document.getElementById("day");
-      var optionIndex = 0;
+      function appendDay(){
+        var selectValue = document.getElementById("day");
+        var optionIndex = 0;
 
-      for(var i=1;i<=31;i++){
-          selectValue.add(new Option(i+"일",i),optionIndex++);
+        for(var i=1; i<=31; i++){
+            selectValue.add(new Option(i+"일",i), optionIndex++);
+        }
       }
-    }
-  </script>
-    <header id="header">
+    </script>
+
+    <header id="HomeHeader">
       <div class = "container">
-        <a href="home">홈</a>
-        <a href="login">로그인</a>
-        <a href="signup">회원가입</a>
+        <a href="index.html">홈</a>
+        <a href="login.html">로그인</a>
+        <a href="signup.html">회원가입</a>
+      </div>
+
+      <div class = 'logoimg'>
+        <img src="/static/img/titleLogo2.png" width ="105px" height="28px">
       </div>
     </header>
 
@@ -55,15 +59,13 @@
           </div>
 
           <div class = 'signupsection'>
-            <form method="POST" action="signup" class="signupForm">
+            <form method="post" action="signup" class="signupForm">
               {% csrf_token %}
-              <h2>회원가입</h2>
               <div class="idForm">
                 이메일(아이디)
-                <input type="email" name="username"class="email" placeholder="email@gmail.com">
+                <input type="email" name="username" class="email" placeholder="malgam@gmail.com">
+                <input type="submit" class="Ebtn" name="Echeck" value="이메일 확인">
               </div>
-      
-              <input type="submit" class="Ebtn" name="Echeck" value="이메일 확인">
 
               <div class="passForm">
                 비밀번호
@@ -74,19 +76,13 @@
                 비밀번호 확인
                 <input type="password" name="confirm" class = "pw_ck" value="" placeholder="비밀번호확인">
                 <!-- <input type="button" name="user_PWcheck" value="비밀번호 재확인"> -->
-
               </div>
 
               <div class="nameForm">
                 이름<br>
                 <input name="first_name" type="text" class = "first_name" value="" placeholder="">
               </div>
-      
-              <div class="nameForm">
-                성<br>
-                <input name="last_name" type="text" class = "last_name" value="" placeholder="">
-              </div>
-      
+
               <div class="genderForm">
                 성별
                 <select name="gender" class = "gender">
@@ -98,104 +94,37 @@
 
               <div class="birthForm">
                 생년월일<br>
-                <input type="hidden" name="year">
-                <select class = "year" id="year">
-                  <option> 년 </option>
-                </select>
-                
-                <select class = "month" name="month" id="month">
-                              <option> 월 </option>
-                </select>
-                
-                <select class = "day" name="day" id="day">
-                              <option> 일 </option>
-                </select>
+
+                <input type="hidden" name="memBirth">
+                  <select class = "year" name="year" id="year">
+                    <option> 년 </option>
+                  </select>
+
+                  <select class = "month" name="month" id="month">
+                    <option> 월 </option>
+                  </select>
+
+                  <select class = "day" name="day" id="day">
+                    <option> 일 </option>
+                  </select>
               </div>
 
-              <div class="occuForm">
+              <div class="jobForm">
                 직업<br>
-                <select name="job" class = "occu">
+                <select name="job" class = "job">
                   <option value="">직업선택</option>
-                  <option value="JOB_STUDENT">학생</option>
-                  <option value="JOB_FREELANCE">프리랜서</option>
-                  <option value="JOB_NONE">무직</option>
-                  <option value="JOB_WORKER">직장인</option>
+                  <option value="students">초,중,고등학생</option>
+                  <option value="univ_students">대학생</option>
+                  <option value="office_worker">회사원</option>
+                  <option value="freelancer">프리랜서</option>
                 </select>
               </div>
 
-              <div class = "next">
-                <input type="submit" class="btn" value = "회원가입하기!"></button>
-              </div>
+              <input type="submit" class="btn" value = "회원가입">
             </form>
           </div>
         </div>
       </div>
-<<<<<<< Updated upstream
     </main>
   </body>
-=======
-      <input type="submit" class="Ebtn" name="Echeck" value="이메일 확인">
-
-      <div class="passForm">
-      비밀번호
-      <input type="password" name="password" class = "pw" value="" placeholder="비밀번호">
-      </div>
-
-    <div class="passCheck">
-      비밀번호 확인
-      <input type="password" name="confirm" class = "pw_ck" value="" placeholder="비밀번호확인">
-      <!-- <input type="button" name="user_PWcheck" value="비밀번호 재확인"> -->
-
-    </div>
-
-    <div class="nameForm">
-      이름<br>
-      <input name="first_name" type="text" class = "first_name" value="" placeholder="">
-    </div>
-    <div class="nameForm">
-      성<br>
-      <input name="last_name" type="text" class = "last_name" value="" placeholder="">
-    </div>
-    <div class="genderForm">
-      성별
-      <select name="gender" class = "gender">
-        <option value="">성별선택</option>
-        <option value="여">여성</option>
-        <option value="남">남성</option>
-      </select>
-    </div>
-
-    <div class="birthForm">
-      생년월일<br>
-      <input type="hidden" name="year">
-                  <select class = "year" id="year">
-                    <option> 년 </option>
-                  </select>
-      <select class = "month" name="month" id="month">
-                    <option> 월 </option>
-                  </select>
-      <select class = "day" name="day" id="day">
-                    <option> 일 </option>
-                  </select>
-    </div>
-
-    <div class="occuForm">
-      직업<br>
-      <select name="job" class = "occu">
-        <option value="">직업선택</option>
-        <option value="JOB_STUDENT">학생</option>
-        <option value="JOB_FREELANCE">프리랜서</option>
-        <option value="JOB_NONE">무직</option>
-        <option value="JOB_WORKER">직장인</option>
-      </select>
-    </div>
-
-    <div class = "next">
-      <input type="submit" class="btn" value = "회원가입하기!"></button>
-    </div>
-
-  </form>
-
-</body>
->>>>>>> Stashed changes
 </html>

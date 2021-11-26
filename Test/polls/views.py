@@ -9,12 +9,12 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import user_info, file, Test, Rating
+from .models import user_info, file  #, Test, Rating
 
 array1 = np.zeros((20, 20))
 username=''
-test1 = Test()
-rating1 = Rating()
+#test1 = Test()
+#rating1 = Rating()
 furniture_list = ['kitchen', 'front', 'refri','restroom','bed','closet','washer']
 
 def home(request):
@@ -98,19 +98,62 @@ def recommend(request):
     chk_fur2 = request.POST.getlist('chk_fur2[]')
     array1 = main.addgenerate(chk_fur2)
     print("add")
-<<<<<<< Updated upstream
     print(array1)'''
+    chk_fur1 = request.POST.getlist('chk_fur1[]')
+    # 아무 가구도 없을 때
+    if 'none' in chk_fur1:
+        # 수정필요
+        array1 = main.fixgenerate(furniture_list, '인덱스리스트수정필요')
+        return render(request, 'info4.html', {'array1': array1})
+    print(chk_fur1)
+    kname = []
+    if 'kitchen' in chk_fur1:
+        kname1 = request.POST.getlist('Kname1[]')
+        if (len(kname1) == 1):
+            kname11 = list(map(int, kname1[0].split(',')))
+            kname.append(kname11)
+    if 'front' in chk_fur1:
+        kname2 = request.POST.getlist('Kname2[]')
+        if (len(kname2) == 1):
+            kname22 = list(map(int, kname2[0].split(',')))
+            kname.append(kname22)
+
+    if 'refri' in chk_fur1:
+        kname3 = request.POST.getlist('Kname3[]')
+        if (len(kname3) == 1):
+            kname33 = list(map(int, kname3[0].split(',')))
+            kname.append(kname33)
+    if 'restroom' in chk_fur1:
+        kname4 = request.POST.getlist('Kname4[]')
+        if (len(kname4) == 1):
+            kname44 = list(map(int, kname4[0].split(',')))
+            kname.append(kname44)
+    if 'bed' in chk_fur1:
+        kname5 = request.POST.getlist('Kname5[]')
+        if (len(kname5) == 1):
+            kname55 = list(map(int, kname5[0].split(',')))
+            kname.append(kname55)
+    if 'closet' in chk_fur1:
+        kname6 = request.POST.getlist('Kname6[]')
+        if (len(kname6) == 1):
+            kname66 = list(map(int, kname6[0].split(',')))
+            kname.append(kname66)
+    if 'washer' in chk_fur1:
+        kname7 = request.POST.getlist('Kname7[]')
+        if (len(kname7) == 1):
+            kname77 = list(map(int, kname7[0].split(',')))
+            kname.append(kname77)
+    array1 = main.fixgenerate(chk_fur1, kname)
     back = Image.open("back.png")
     back.save("back1.png")
-=======
     print(array1)
     back = Image.new('RGB', (400, 400), '#AAAAAA')
-    back.save("002.png")'''
->>>>>>> Stashed changes
+    back.save("002.png")
+
     main.show_image1(array1, "back1.png")
     image = Image.open("back1.png")
     image.save('추천.png')
-    image.show()
+    #image.show()
     return render(request, 'recommend.html', {'array1': array1})
 
 
@@ -124,11 +167,11 @@ def signup(request):
     if request.method == 'POST':
         # password와 confirm에 입력된 값이 같다면
         if request.POST['password'] == request.POST['confirm']:
-            if request.POST['first_name'] is not None and request.POST['last_name'] is not None and request.POST['job']\
+            if request.POST['first_name'] is not None and request.POST['job']\
                     is not None and request.POST['day'] is not None and request.POST['month'] is not None and request.POST['year'] is not None and request.POST['gender']:
             # user 객체를 새로 생성
                 user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'],
-                                                first_name=request.POST['first_name'], last_name=request.POST['last_name'])
+                                                first_name=request.POST['first_name'])
                 auth.login(request, user)
                 userInfo = user_info()
                 userInfo.gender = request.POST['gender']

@@ -746,9 +746,9 @@ def show_image1(array1,background):
         elif i == 7:
             furniture_image = Image.open("refri.png")
         elif i == 8:
-            furniture_image = Image.open("kitchen")
+            furniture_image = Image.open("kitchen.png")
         elif i == 9:
-            furniture_image = Image.open("front")
+            furniture_image = Image.open("front.png")
         elif i == 10:
             furniture_image = Image.open("table.png")
 
