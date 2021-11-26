@@ -84,45 +84,6 @@ def info4(request):
 
 
 def recommend(request):
-    chk_fur1 = request.POST.getlist('chk_fur1[]')
-    kname = []
-    if 'kitchen' in chk_fur1:
-        kname1 = request.POST.getlist('Kname1[]')
-        if (len(kname1) == 1):
-            kname11 = list(map(int, kname1[0].split(',')))
-            kname.append(kname11)
-    if 'front' in chk_fur1:
-        kname2 = request.POST.getlist('Kname2[]')
-        if (len(kname2) == 1):
-            kname22 = list(map(int, kname2[0].split(',')))
-            kname.append(kname22)
-
-    if 'refri' in chk_fur1:
-        kname3 = request.POST.getlist('Kname3[]')
-        if (len(kname3) == 1):
-            kname33 = list(map(int, kname3[0].split(',')))
-            kname.append(kname33)
-    if 'restroom' in chk_fur1:
-        kname4 = request.POST.getlist('Kname4[]')
-        if (len(kname4) == 1):
-            kname44 = list(map(int, kname4[0].split(',')))
-            kname.append(kname44)
-    if 'bed' in chk_fur1:
-        kname5 = request.POST.getlist('Kname5[]')
-        if (len(kname5) == 1):
-            kname55 = list(map(int, kname5[0].split(',')))
-            kname.append(kname55)
-    if 'closet' in chk_fur1:
-        kname6 = request.POST.getlist('Kname6[]')
-        if (len(kname6) == 1):
-            kname66 = list(map(int, kname6[0].split(',')))
-            kname.append(kname66)
-    if 'washer' in chk_fur1:
-        kname7 = request.POST.getlist('Kname7[]')
-        if (len(kname7) == 1):
-            kname77 = list(map(int, kname7[0].split(',')))
-            kname.append(kname77)
-    array1 = main.fixgenerate(chk_fur1, kname)
     msize = request.POST.get('size')
     '''chk_fur2 = request.POST.getlist('chk_fur2[]')
     array1 = main.addgenerate(chk_fur2)
@@ -132,6 +93,7 @@ def recommend(request):
     back.save("002.png")
     main.show_image1(array1, "back1.png")
     image = Image.open("back1.png")
+
     image.save('추천.png')
     image.show()
     return render(request, 'recommend.html', {'array1': array1})
