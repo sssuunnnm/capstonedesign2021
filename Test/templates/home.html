@@ -58,7 +58,11 @@
           </div>
 
           <div class = 'button'>
-              <button type="button" onclick="location.href = 'info1'"> 지금 추천받기 </button>
+            {% if user.is_authenticated %}
+            <button type="button" onclick="location.href = 'info2'"> 지금 추천받기 </button>
+            {% else %}
+            <button type="button" onclick="location.href = 'info1'"> 지금 추천받기 </button>
+            {% endif %}
           </div>
         </div>
       </div> 
