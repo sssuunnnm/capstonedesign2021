@@ -794,7 +794,7 @@ def show_image1(array1,background):
             back.save(background)
 
 
-def fun1(job, age):
+def func1(job, age):
     j = job; a = age;
     newlist = []
     if( j == 'students' or j == 'students' or a == '10s'):
@@ -803,7 +803,7 @@ def fun1(job, age):
 
     return newlist
 
-def fun2(furlist):
+def func2(furlist):
     alist = []
     if len(furlist) < 5:
         alist.append('table')

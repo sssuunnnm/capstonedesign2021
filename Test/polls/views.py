@@ -18,6 +18,7 @@ gender = '여'
 job = 'univ_students'
 room_name = ''
 user = User
+user = User.objects
 # test1 = Test()
 # rating1 = Rating()
 furniture_list = ['kitchen', 'front', 'refri','restroom','bed','closet','washer']
