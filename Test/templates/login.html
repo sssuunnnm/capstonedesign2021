@@ -36,12 +36,12 @@
               {% csrf_token %}
               <div class="idForm">
                 이메일(아이디)
-                <input type="email" class="email" placeholder="malgam@gmail.com">
+                <input type="email" name="username" class="email" placeholder="malgam@gmail.com">
               </div>
         
               <div class="passForm">
                 비밀번호
-                <input type="password" class="pw" placeholder="password">
+                <input type="password" name ="password" class="pw" placeholder="password">
               </div>
         
               <input type="submit" class="btn" value = "로그인">

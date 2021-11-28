@@ -150,9 +150,6 @@ def recommend(request):
     back = Image.new('RGB', (400, 400), '#AAAAAA')
     back.save("002.png")
 
-    print(array1)
-    back = Image.new('RGB', (400, 400), '#AAAAAA')
-    back.save("002.png")
     main.show_image1(array1, "back1.png")
     image = Image.open("back1.png")
     image.save('추천.png')
