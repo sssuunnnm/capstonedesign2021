@@ -12,12 +12,12 @@
     <body>
         <header id = 'HomeHeader'>
             <div class = 'container'>
-                <a href= 'index.html'>홈</a>
+                <a href= 'home'>홈</a>
                 {% if user.is_authenticated %}
                 <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
                 {% else %}
-                <a href= 'login.html'>로그인</a>
-                <a href= 'signup.html'>회원가입</a>
+                <a href= 'login'>로그인</a>
+                <a href= 'signup'>회원가입</a>
                 {% endif %}
             </div>
 
@@ -36,7 +36,7 @@
                    
     
                     <div class = 'button'>
-                        <button type="button" onclick="location.href = 'index.html'"> 처음 화면으로 </button>
+                        <button type="button" onclick="location.href = 'home'"> 처음 화면으로 </button>
                     </div>
 
                 </div>

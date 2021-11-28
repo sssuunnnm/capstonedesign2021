@@ -636,8 +636,8 @@ def find_index6(array1, a):
         if pow == 1:
             while(1):
                 cont = 0
-                in1 = random.choice([0, 15 - a.hsize])
-                in2 = random.randint(0, 15 - a.wsize)
+                in1 = random.choice([0, 14 - a.hsize])
+                in2 = random.randint(0, 14 - a.wsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
@@ -647,8 +647,8 @@ def find_index6(array1, a):
         else:
             while (1):
                 cont = 0
-                in2 = random.choice([0, 15 - a.wsize])
-                in1 = random.randint(0, 15 - a.hsize)
+                in2 = random.choice([0, 14 - a.wsize])
+                in1 = random.randint(0, 14 - a.hsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
@@ -792,3 +792,22 @@ def show_image1(array1,background):
             # 배경 이미지에 가구 이미지 붙여넣기
             back.paste(draw, (x, y))
             back.save(background)
+
+
+def fun1(job, age):
+    j = job; a = age;
+    newlist = []
+    if( j == 'students' or j == 'students' or a == '10s'):
+        newlist.append['desk']
+
+
+    return newlist
+
+def fun2(furlist):
+    alist = []
+    if len(furlist) < 5:
+        alist.append('table')
+
+
+
+    return alist

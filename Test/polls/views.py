@@ -13,37 +13,39 @@ from .models import user_info, file  #, Test, Rating
 
 array1 = np.zeros((20, 20))
 username=''
-#test1 = Test()
-#rating1 = Rating()
+age = '20s'
+gender = '여'
+job = 'univ_students'
+room_name = ''
+user = ''
+# test1 = Test()
+# rating1 = Rating()
 furniture_list = ['kitchen', 'front', 'refri','restroom','bed','closet','washer']
 
 def home(request):
     return render(request, 'home.html')
 
-
 def info1(request):
     return render(request, 'info1.html')
 
-
 @csrf_exempt
 def info2(request):
-    # data=user_info()
-    # data.age=request.POST['age']
-    # data.job=request.POST['job']
-    # data.gender=request.POST['gender']
-    return render(request, 'info2.html')
+    age = request.POST['age']
+    gender = request.POST['gender']
+    job = request.POST['job']
+
+    return render(request, 'info2.html', {'age': age}, {'job' : job}, {'gender': gender})
 
 
 def info3(request):
-    # user_info.room_name=request.GET.get('Rname')
+    room_name=request.GET.get('Rname')
     # shape=request.GET.get('chk_shape')
-
-    # print("shape",shape)
     return render(request, 'info3.html')
-
 
 def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
+    addlist = []
+
     #아무 가구도 없을 때
     if 'none' in chk_fur1:
         #수정필요
@@ -90,33 +92,14 @@ def info4(request):
     array1 = main.fixgenerate(chk_fur1, kname)
     print("fix")
     print(array1)
-    return render(request, 'info4.html', {'array1': array1})
 
+    if user.is_authenticated:
+        addlist = main.func1(age, gender, job)
+    else:
+        addlist = main.fun2(chk_fur1)
 
-def recommend(request):
-    '''msize = request.POST.get('size')
-    chk_fur2 = request.POST.getlist('chk_fur2[]')
-    array1 = main.addgenerate(chk_fur2)
-    print("add")
-    print(array1)'''
-    chk_fur1 = request.POST.getlist('chk_fur1[]')
-    # 아무 가구도 없을 때
-    if 'none' in chk_fur1:
-        # 수정필요
-        array1 = main.fixgenerate(furniture_list, '인덱스리스트수정필요')
-        return render(request, 'info4.html', {'array1': array1})
-    print(chk_fur1)
-    kname = []
-    if 'kitchen' in chk_fur1:
-        kname1 = request.POST.getlist('Kname1[]')
-        if (len(kname1) == 1):
-            kname11 = list(map(int, kname1[0].split(',')))
-            kname.append(kname11)
-    if 'front' in chk_fur1:
-        kname2 = request.POST.getlist('Kname2[]')
-        if (len(kname2) == 1):
-            kname22 = list(map(int, kname2[0].split(',')))
-            kname.append(kname22)
+    main.addgenerate(addlist)
+    # 새로운 가구 추가해서 이니셜 필요
 
     if 'refri' in chk_fur1:
         kname3 = request.POST.getlist('Kname3[]')
@@ -150,16 +133,27 @@ def recommend(request):
     back = Image.new('RGB', (400, 400), '#AAAAAA')
     back.save("002.png")
 
+    # 배치도 이미지 생성
     main.show_image1(array1, "back1.png")
     image = Image.open("back1.png")
     image.save('추천.png')
-    #image.show()
+
+    return render(request, 'info4.html', {'array1': array1})
+
+
+def recommend(request):
+    # 이미지 띄워야함
     return render(request, 'recommend.html', {'array1': array1})
 
 
-def image(request):
-    return render
+def info5(request):
+    r1 = int(request.POST['chk_info1'])
+    r2 = int(request.POST['chk_info2'])
+    r3 = int(request.POST['chk_info3'])
 
+    print(r1, r2, r3)
+    # 데이터 베이스로 세이브 필요
+    return render(request, 'info5.html')
 
 # 회원 가입
 def signup(request):
@@ -186,7 +180,10 @@ def signup(request):
                 userInfo.save()
                 # 로그인 한다
                 auth.login(request, user)
-                {'username':username}
+                {'username': username}
+                {'job': job}
+                {'gender': gender}
+                {'user' : user}
                 return redirect('/')
 
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
@@ -207,6 +204,7 @@ def login(request):
         if user is not None:
             # 로그인 한다
             auth.login(request, user)
+            {'user': user}
             {'username': username}
             return redirect('/')
         # 존재하지 않는다면
@@ -221,11 +219,8 @@ def login(request):
 # 로그 아웃
 def logout(request):
     auth.logout(request)
+    user=''
+    #{'user' : user}
     return redirect('/')
-    # logout으로 POST 요청이 들어왔을 때, 로그아웃 절차를 밟는다.
-    #if request.method == 'POST':
-    # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
-    #else:
-        #return render(request, 'login.html')
 
-# Create your views here.
+
