@@ -71,7 +71,7 @@ class Rating(models.Model):
     rtype = models.CharField(max_length=10, db_column='type')
     tag = models.IntegerField(db_column='tag')
 
-
+    
 class Test(models.Model):
     furniture = models.ForeignKey("rating", related_name='furniture', on_delete=models.CASCADE, db_column='furniture')
     gname = models.CharField(max_length=50, db_column='name')

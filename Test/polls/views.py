@@ -17,7 +17,7 @@ age = '20s'
 gender = '여'
 job = 'univ_students'
 room_name = ''
-user = ''
+user = User
 # test1 = Test()
 # rating1 = Rating()
 furniture_list = ['kitchen', 'front', 'refri','restroom','bed','closet','washer']
@@ -30,11 +30,12 @@ def info1(request):
 
 @csrf_exempt
 def info2(request):
-    age = request.POST['age']
-    gender = request.POST['gender']
-    job = request.POST['job']
-
-    return render(request, 'info2.html', {'age': age}, {'job' : job}, {'gender': gender})
+    '''
+    age = request.POST.get['age']
+    gender = request.POST.get['gender']
+    job = request.POST.get['job']
+'''
+    return render(request, 'info2.html') #{'age': age}, {'job' : job}, {'gender': gender})
 
 
 def info3(request):
@@ -44,6 +45,7 @@ def info3(request):
 
 def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
+    print(chk_fur1)
     addlist = []
 
     #아무 가구도 없을 때
@@ -94,8 +96,10 @@ def info4(request):
     print(array1)
 
     if user.is_authenticated:
+        print("여기가 출력이 되는지")
         addlist = main.func1(age, gender, job)
     else:
+        print("아니면 이건지")
         addlist = main.fun2(chk_fur1)
 
     main.addgenerate(addlist)
