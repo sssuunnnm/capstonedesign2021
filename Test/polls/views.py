@@ -95,7 +95,7 @@ def recommend(request):
 def loading(request):
     chk_fur2 = request.POST.getlist('chk_fur2[]')
     array1 = main.addgenerate(chk_fur2)
-    back = Image.open("back.png")
+    back = Image.open("back3.png")
     back.save("back1.png")
     print(array1)
     back = Image.new('RGB', (400, 400), '#AAAAAA')

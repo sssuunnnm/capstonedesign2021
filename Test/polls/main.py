@@ -633,11 +633,11 @@ def find_index6(array1, a):
     while(1):
         cont = 0
         pow = random.choice([1, 2])
-        if pow == 1:
+        if a.direction == '가로':
             while(1):
                 cont = 0
-                in1 = random.choice([0, 15 - a.hsize])
-                in2 = random.randint(0, 15 - a.wsize)
+                in1 = random.choice([0, 19 - a.hsize])
+                in2 = random.randint(0, 19 - a.wsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
@@ -647,8 +647,8 @@ def find_index6(array1, a):
         else:
             while (1):
                 cont = 0
-                in2 = random.choice([0, 15 - a.wsize])
-                in1 = random.randint(0, 15 - a.hsize)
+                in2 = random.choice([0, 19 - a.wsize])
+                in1 = random.randint(0, 19 - a.hsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
@@ -738,25 +738,25 @@ def show_image1(array1,background):
     print(array1)
     for i in range(1, 11):
         if i == 1:
-            furniture_image = Image.open("bed.png")
+            furniture_image = Image.open("bed.jpg")
         elif i == 2:
-            furniture_image = Image.open("desk.png")
+            furniture_image = Image.open("desk.jpg")
         elif i == 3:
-            furniture_image = Image.open("closet.png")
-        elif i == 4:
-            furniture_image = Image.open("wmachine.png")
+            furniture_image = Image.open("closet.jpg")
+        #elif i == 4:
+         #   furniture_image = Image.open("wmachine.jpg")
         elif i == 5:
-            furniture_image = Image.open("restroom.png")
+            furniture_image = Image.open("restroom.jpg")
         elif i == 6:
-            furniture_image = Image.open("storage.png")
+            furniture_image = Image.open("storage.jpg")
         elif i == 7:
-            furniture_image = Image.open("refri.png")
+            furniture_image = Image.open("refri.jpg")
         elif i == 8:
-            furniture_image = Image.open("kitchen.png")
-        elif i == 9:
-            furniture_image = Image.open("front.png")
+            furniture_image = Image.open("kitchen.jpg")
+        #elif i == 9:
+         #   furniture_image = Image.open("front.jpg")
         elif i == 10:
-            furniture_image = Image.open("table.png")
+            furniture_image = Image.open("table.jpg")
 
         if np.any(array1 == i):
             back = Image.open(background)

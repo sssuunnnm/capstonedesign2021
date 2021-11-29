@@ -64,11 +64,13 @@ class Add_info(models.Model):
 class file(models.Model):
     photo = models.ImageField(upload_to="")
 
-class UserLatestTags(models.Model):
+'''class UserLatestTags(models.Model):
     user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
+    kitchen
+    rest =
     furniture = models.IntegerField(db_column='furniture')
     tag = models.IntegerField(db_column='tag')
-'''
+
 class Rating(models.Model):
     user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
     furniture = models.IntegerField( db_column='furniture')
