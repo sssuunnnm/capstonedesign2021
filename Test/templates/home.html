@@ -30,25 +30,24 @@
           <div class = 'img'>
             <img src="/static/img/001.png" width ="200px" height="200px">
           </div>
-          
-          <script>
-              var myImage = document.getElementById("mainImage");
-              var imageArray = ["/static/img/001.png", "/static/img/001.png","/static/img/002.png","/static/img/003.png","/static/img/005.png"];
-              var imageIndex = 0;
-
-              function changeImage(){
-                  myImage.setAttribute("src", imageArray[imageIndex]);
-                  imageIndex++;
-
-                  if(imageIndex >= imageArray.length){
-                      imageIndex = 0;
-                  }
-              }
-
-              setInterval(changeImage, 1500);
-          </script>
-          
         </div>
+        
+        <script>
+          var myImage = document.getElementById("mainImage");
+          var imageArray = ["/static/img/001.png", "/static/img/001.png","/static/img/002.png","/static/img/003.png","/static/img/005.png"];
+          var imageIndex = 0;
+
+          function changeImage(){
+            myImage.setAttribute("src", imageArray[imageIndex]);
+            imageIndex++;
+
+            if(imageIndex >= imageArray.length){
+              imageIndex = 0;
+            }
+          }
+
+          setInterval(changeImage, 1500);
+        </script>
 
         <div class = 'box'>
           <div class = 'titlesection'>
@@ -67,5 +66,25 @@
         </div>
       </div> 
     </main>
+    
+    <footer id = "footer">
+      <div class = "FooterSection">
+        <div class = 'test'>
+          <div class = "first">
+            <span> 단국대학교 응용컴퓨터공학과 </span>
+            <span> 말감(MALGAM) </span>
+            <span> 김동우, 김연홍, 김유빈, 이선민 </span>
+          </div>
+
+          <div class = "second">
+            <span> 경기도 용인시 수지구 죽전로 152 제2공학관 522호 </span>
+          </div>
+
+          <div class = "copyright">
+            ⓒ MALGAM ALL RIGHTS RESERVED.
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
