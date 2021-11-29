@@ -709,17 +709,17 @@ def addgenerate(chk):
     for i in range(len(chk)):
         if chk[i]=='bed':
             listchk.append(bed(8,4,0,0,0,0,'가로',0))
-        if chk[i] == 'wmachine':
+        elif chk[i] == 'wmachine':
             listchk.append(wmachine(3, 3, 0, 0, 0, 0, '가로', 0))
-        if chk[i] == 'desk':
+        elif chk[i] == 'desk':
             listchk.append(desk(8, 3, 0, 0, 0, 0, '세로', 0))
-        if chk[i]=='closet':
+        elif chk[i]=='closet':
             listchk.append(closet(4,2,0,0,0,0,'세로',0))
-        if chk[i]=='storage':
+        elif chk[i]=='storage':
             listchk.append(storage(4,4,0,0,0,0,'가로',0))
-        if chk[i]=='refri':
+        elif chk[i]=='refri':
             listchk.append(refri(6,6,0,0,0,0,'가로',0))
-        if chk[i]=='table':
+        elif chk[i]=='table':
             listchk.append(table(2,2,0,0,0,0,'가로',0))
     for i in range(len(listchk)):
         find_index6(array1,listchk[i])
@@ -798,15 +798,14 @@ def func1(job, age):
     j = job; a = age;
     newlist = []
     if( j == 'students' or j == 'students' or a == '10s'):
-        newlist.append['desk']
+        newlist.append('desk')
 
 
     return newlist
 
 def func2(furlist):
     alist = []
-    if len(furlist) < 5:
-        alist.append('table')
+    alist.append('desk')
     # 침대 없으면 무조건 침대 추가
 
 

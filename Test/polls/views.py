@@ -67,71 +67,26 @@ def info4(request):
             kname22 = list(map(int, kname2[0].split(',')))
             kname.append(kname22)
 
-    if 'refri' in chk_fur1:
-        kname3 = request.POST.getlist('Kname3[]')
-        if (len(kname3) == 1):
-            kname33 = list(map(int, kname3[0].split(',')))
-            kname.append(kname33)
     if 'restroom' in chk_fur1:
         kname4 = request.POST.getlist('Kname4[]')
         if (len(kname4) == 1):
             kname44 = list(map(int, kname4[0].split(',')))
             kname.append(kname44)
-    if 'bed' in chk_fur1:
-        kname5 = request.POST.getlist('Kname5[]')
-        if (len(kname5) == 1):
-            kname55 = list(map(int, kname5[0].split(',')))
-            kname.append(kname55)
-    if 'closet' in chk_fur1:
-        kname6 = request.POST.getlist('Kname6[]')
-        if (len(kname6) == 1):
-            kname66 = list(map(int, kname6[0].split(',')))
-            kname.append(kname66)
-    if 'washer' in chk_fur1:
-        kname7 = request.POST.getlist('Kname7[]')
-        if (len(kname7) == 1):
-            kname77 = list(map(int, kname7[0].split(',')))
-            kname.append(kname77)
+
     array1 = main.fixgenerate(chk_fur1, kname)
     print("fix")
     print(array1)
 
     if user.is_authenticated:
         print("여기가 출력이 되는지")
-        addlist = main.func1(age, gender, job)
+        addlist = main.func2(age, gender, job)
     else:
         print("아니면 이건지")
-        addlist = main.fun2(chk_fur1)
+        addlist = main.fun1(chk_fur1)
 
-    main.addgenerate(addlist)
+    array1 = main.addgenerate(addlist)
     # 새로운 가구 추가해서 이니셜 필요
 
-    if 'refri' in chk_fur1:
-        kname3 = request.POST.getlist('Kname3[]')
-        if (len(kname3) == 1):
-            kname33 = list(map(int, kname3[0].split(',')))
-            kname.append(kname33)
-    if 'restroom' in chk_fur1:
-        kname4 = request.POST.getlist('Kname4[]')
-        if (len(kname4) == 1):
-            kname44 = list(map(int, kname4[0].split(',')))
-            kname.append(kname44)
-    if 'bed' in chk_fur1:
-        kname5 = request.POST.getlist('Kname5[]')
-        if (len(kname5) == 1):
-            kname55 = list(map(int, kname5[0].split(',')))
-            kname.append(kname55)
-    if 'closet' in chk_fur1:
-        kname6 = request.POST.getlist('Kname6[]')
-        if (len(kname6) == 1):
-            kname66 = list(map(int, kname6[0].split(',')))
-            kname.append(kname66)
-    if 'washer' in chk_fur1:
-        kname7 = request.POST.getlist('Kname7[]')
-        if (len(kname7) == 1):
-            kname77 = list(map(int, kname7[0].split(',')))
-            kname.append(kname77)
-    array1 = main.fixgenerate(chk_fur1, kname)
     back = Image.open("back.png")
     back.save("back1.png")
     print(array1)
