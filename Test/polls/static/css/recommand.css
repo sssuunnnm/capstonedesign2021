@@ -20,6 +20,30 @@ body {text-align: center}
 .title {text-align: center; text-transform:uppercase;}
 .title p {display: inline; font-size: 24px; color:#424242; padding: "20px 20px"}
 
+/* 이미지 콜라주 */
+/* 이미지 크기는 최대로 그냥 두고 span에 너비를 지정해서 사용.*/
+.imgCollage {margin:auto;  text-align: center;}
+@media screen and (min-width: 600px) {
+	.imgCollage {
+		display:flex; -webkit-flex:auto; -moz-display:flex; -ms-display:flex;
+		flex-wrap:wrap; -webkit-flex-wrap:wrap; -moz-flex-wrap:wrap; -ms-flex-wrap:wrap;
+	}
+	.imgCollage > span { padding: 4px ; }
+	.imgCollage > span > .imageblock:not(:last-child) { vertical-align: baseline; }
+    .imgCollage .imageblock { text-align:center; padding:0; }
+	.imgCollage img { box-shadow: none; }
+}
+@media screen and (max-width: 599px) {
+	.imgCollage > span { padding: 0; width: 100% !important; }
+	.imgCollage .imageblock { padding: 16px 0; }
+	.imgCollage  > span:first-of-type .imageblock:first-of-type { padding-top: 8px; }
+	.imgCollage  > span:last-of-type .imageblock:last-of-type { padding-bottom: 4px; }
+}
+
+/* 별점 css*/
+.selectForm p {display: inline; font-size: 24px; color:#424242; padding: "20px 20px"}
+input {width:500px; height:250px; font-size:20px;}
+
 
 /* 버튼 */
 .btn{text-align:center; width:100px; height: 30px; color:#fff; background: #7cb342;

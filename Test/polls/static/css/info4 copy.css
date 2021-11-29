@@ -1,0 +1,107 @@
+* {
+    background-color:#ffffff;
+    font-family:  "Noto Sans CJK KR"
+}
+
+/* 우측 상단바 */
+.container {
+    width : 1200px;
+    margin : 0 auto;
+    background : inherit;
+    text-align :right;
+}
+
+.container a {
+    display : inline-block;
+    text-decoration : none;
+    color : #212121;
+    padding : 5px 0 0 10px;
+    transition: all 0.5s ease;
+}
+
+.container a:hover {color : #268623}
+
+@media (max-width : 1280px) {
+    .container {
+        width : 90%;
+        padding : 0 15px
+    }
+}
+
+/* 사이트 로고 */
+.logoimg {
+    text-align : center;
+}
+
+/* 본문 */
+.mainsection{
+    width : 600px;
+    margin : auto;
+    text-align : center;
+}
+
+.selectForm{
+    text-align : center;
+    width : 500px;
+    margin : auto;
+}
+
+.selectForm p{
+    font-size : 18px;
+}
+
+.box {
+    width : 200px;
+    margin : auto;
+
+    text-align: left;
+
+    display : grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.img {
+    position : relative;
+}
+
+.addfurselect {
+    line-height: 30px;
+    position : relative;
+    font-size: 18px;
+}
+
+.ageselect {
+    line-height: 30px;
+    position : relative;
+}
+
+/* 버튼 */
+.button {
+    position : relative;
+    top : 20px;
+    text-align: center;
+}
+
+.btn {
+    display : inline;
+    width : 100px;
+    height : 30px;
+    color : #ffffff;
+    background : #7cb342;
+    font-size : 14px;
+    border : none;
+    border-radius : 20px;
+    box-shadow : 0 4px 16px rgba(105,147,6,0.3);
+    transition : 0.3s;
+}
+
+.btn:focus {
+    outline : 0;
+}
+
+.btn:hover {
+    background : rgba(159, 201, 60, 0.9);
+    cursor : pointer;
+    box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6);
+}
+  
