@@ -20,9 +20,10 @@
 }
 
 .container a:hover {
-    color : #268623}
+    color : #268623
+}
 
-@media (max-width : 1280px){
+@media (max-width : 1280px) {
     .container {
         width : 90%;
         padding : 0 15px
@@ -35,14 +36,20 @@
 }
 
 /* 본문 */
-.mainsection{
+.mainsection {
     text-align : center;
+    padding-top: 50px;
+}
+
+.titlesection {
+    font-size: 24px;
+    padding-bottom : 10px;
 }
 
 .box {
     width : 500px;
     margin : auto;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
 
     text-align: left;
 
@@ -50,16 +57,25 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.feedback {
+    width : 500px;
+    margin : auto;
+    padding-top : 30px;
+    padding-bottom: 20px;
+
+    border-top: 1px solid rgba(37,40,47,0.1);
+}
+
 
 /* 버튼 */
-.button{
+.button {
     position : relative;
-    top : 10px;
+    padding-top : 20px;
     text-align : center;
     padding-bottom : 10px;
 }
 
-.btn{
+.btn {
     display : inline;
     width : 100px;
     height : 30px;

@@ -27,49 +27,53 @@
     
     <main id = 'MainTitle'>
       <div class = 'mainsection'>
-        <p> 정보 입력<br>
-             ● ○ ○ ○ </p>
-
-        <form method='post' action='info2' class = 'selectForm'>
+        <div class = 'input_name'>
+          <p> 정보 입력<br>
+              ● ○ ○ ○ </p>
+        </div>
+        
+        <div class = 'formSection'>
+          <form method='post' action='info2' class = 'selectForm'>
           {% csrf_token %}
-          <div class = 'ageselect'>
-            <p> 나이를 선택해주세요</p>
+            <div class = 'ageselect'>
+              <p> 나이를 선택해주세요</p>
 
-            <select name = "age" style = "width : 120px">
-              <option value = ""> 선택 없음 </option>
-              <option value = "10s"> 10대 </option>
-              <option value = "20s"> 20대 </option>
-              <option value = "30s"> 30대 </option>
-              <option value = "over40s"> 40대이상 </option>
-            </select>
-          </div>
+              <select name = "age" style = "width : 120px">
+                <option value = ""> 선택 없음 </option>
+                <option value = "10s"> 10대 </option>
+                <option value = "20s"> 20대 </option>
+                <option value = "30s"> 30대 </option>
+                <option value = "over40s"> 40대이상 </option>
+              </select>
+            </div>
 
-          <div class = 'genderselect'>
-            <p> 성별을 선택해주세요 </p>
+            <div class = 'genderselect'>
+              <p> 성별을 선택해주세요 </p>
 
-            <select name = "gender" style = "width : 120px">
-              <option value = ""> 선택 없음 </option>
-              <option value = "여"> 여성 </option>
-              <option value = "남"> 남성 </option>
-            </select>
-          </div>
+              <select name = "gender" style = "width : 120px">
+                <option value = ""> 선택 없음 </option>
+                <option value = "여"> 여성 </option>
+                <option value = "남"> 남성 </option>
+              </select>
+            </div>
 
-          <div class = 'jobselect'>
-            <p> 직업을 선택해주세요 </p>
+            <div class = 'jobselect'>
+              <p> 직업을 선택해주세요 </p>
 
-            <select name = "job" style = "width : 120px">
-              <option value = ""> 선택 없음 </option>
-              <option value = "students"> 초, 중, 고등학생 </option>
-              <option value = "univ_students"> 대학생 </option>
-              <option value = "office_worker"> 회사원 </option>
-              <option value = "freelancer"> 프리랜서 </option>
-            </select>
-          </div>
+              <select name = "job" style = "width : 120px">
+                <option value = ""> 선택 없음 </option>
+                <option value = "students"> 초, 중, 고등학생 </option>
+                <option value = "univ_students"> 대학생 </option>
+                <option value = "office_worker"> 회사원 </option>
+                <option value = "freelancer"> 프리랜서 </option>
+              </select>
+            </div>
 
-          <div class = "button">
-            <input type = "submit" class = "btn" value = "다음으로"></button>
-          </div>
-        </form>
+            <div class = "button">
+              <input type = "submit" class = "btn" value = "다음으로"></button>
+            </div>
+          </form>
+        </div>
       </div>
     </main>
   </body>

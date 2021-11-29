@@ -35,9 +35,14 @@
     text-align : center;
 }
 
+.input_name {
+    padding-bottom : 10px;
+}
+
 /* 본문 */
 .mainsection{
     width : 600px;
+    padding-top : 50px;
     margin : auto;
     text-align : center;
 }
@@ -81,7 +86,7 @@
 /* 버튼 */
 .button {
     position : relative;
-    top : 20px;
+    padding-top : 20px;
     text-align: center;
 }
 

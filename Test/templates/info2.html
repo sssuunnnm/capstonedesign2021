@@ -26,21 +26,25 @@
     
     <main id = 'MainTitle'>
       <div class = 'mainsection'>
-        <p> 정보 입력<br>
-             ○ ● ○ ○ </p>
+        <div class = 'input_name'>
+          <p> 정보 입력<br>
+              ○ ● ○ ○ </p>   
+        </div>
 
-        <form method='post' action='info3' class = 'selectForm'>
+        <div class = 'formSection'>
+          <form method='post' action='info3' class = 'selectForm'>
           {% csrf_token %}
-          <div class = 'roomname'>
-            <p> 방 이름을 입력해주세요 </p>
+            <div class = 'roomname'>
+              <p> 방 이름을 입력해주세요 </p>
 
-            <input type="text" name="Rname" style="width : 150px"><br>
-          </div>
+              <input type="text" name="Rname" style="width : 150px"><br>
+            </div>
 
-          <div class = "button">
-            <input type = "submit" class = "btn" value = "다음으로"></button>
-          </div>
-        </form>
+            <div class = "button">
+              <input type = "submit" class = "btn" value = "다음으로"></button>
+            </div>
+          </form>
+        </div>
       </div>
     </main>
   </body>

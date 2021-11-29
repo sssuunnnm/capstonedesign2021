@@ -39,6 +39,15 @@ body {
 }
 
 /* 본문 */
+.mainsection {
+  padding-top: 20px;
+}
+
+.titlesection {
+  padding-bottom : 10px;
+  font-size: 24px;
+}
+
 .signupForm {
   display: inline-block;
   width:350px;

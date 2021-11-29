@@ -38,14 +38,26 @@
 /* 본문 */
 .mainsection{
     width : 300px;
+    padding-top: 50px;
     margin : auto;
     text-align : center;
 }
 
+.input_name {
+    padding-bottom : 10px;
+}
+
 .selectForm{
     text-align : left;
-    width : 180px;
+    width : 250px;
     margin : auto;
+}
+
+.selectForm div{
+    margin-block-start : 30px;
+    margin-block-end : 30px;
+    margin-inline-start : 30px;
+    margin-inline-end : 30px;
 }
 
 .selectForm p{
@@ -55,7 +67,7 @@
 /* 버튼 */
 .button {
     position : relative;
-    top : 20px;
+    padding-top : 20px;
     text-align: center;
 }
 
