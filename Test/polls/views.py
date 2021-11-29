@@ -94,12 +94,6 @@ def recommend(request):
 
 def loading(request):
     chk_fur2 = request.POST.getlist('chk_fur2[]')
-    if user.is_authenticated:
-        print("여기가 출력이 되는지")
-        addlist = main.func2(age, gender, job)
-    else:
-        print("아니면 이건지")
-        addlist = main.fun1(chk_fur2)
     array1 = main.addgenerate(chk_fur2)
     back = Image.open("back.png")
     back.save("back1.png")
