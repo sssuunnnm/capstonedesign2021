@@ -77,26 +77,12 @@ def info4(request):
     print("fix")
     print(array1)
 
-    if user.is_authenticated:
-        print("여기가 출력이 되는지")
-        addlist = main.func2(age, gender, job)
-    else:
-        print("아니면 이건지")
-        addlist = main.fun1(chk_fur1)
-
-    array1 = main.addgenerate(addlist)
     # 새로운 가구 추가해서 이니셜 필요
 
-    back = Image.open("back.png")
-    back.save("back1.png")
-    print(array1)
-    back = Image.new('RGB', (400, 400), '#AAAAAA')
-    back.save("002.png")
+
 
     # 배치도 이미지 생성
-    main.show_image1(array1, "back1.png")
-    image = Image.open("back1.png")
-    image.save('추천.png')
+
 
     return render(request, 'info4.html', {'array1': array1})
 
@@ -106,15 +92,34 @@ def recommend(request):
     return render(request, 'recommend.html', {'array1': array1})
 
 
-def info5(request):
+def loading(request):
+    chk_fur2 = request.POST.getlist('chk_fur2[]')
+    if user.is_authenticated:
+        print("여기가 출력이 되는지")
+        addlist = main.func2(age, gender, job)
+    else:
+        print("아니면 이건지")
+        addlist = main.fun1(chk_fur2)
+    array1 = main.addgenerate(chk_fur2)
+    back = Image.open("back.png")
+    back.save("back1.png")
+    print(array1)
+    back = Image.new('RGB', (400, 400), '#AAAAAA')
+    back.save("002.png")
+    main.show_image1(array1, "back1.png")
+    image = Image.open("back1.png")
+    image.save('추천.png')
+
+    return render(request,'loading.html')
+
+def thanks(request):
     r1 = int(request.POST['chk_info1'])
     r2 = int(request.POST['chk_info2'])
     r3 = int(request.POST['chk_info3'])
 
     print(r1, r2, r3)
     # 데이터 베이스로 세이브 필요
-    return render(request, 'info5.html')
-
+    return render(request, 'thanks.html')
 # 회원 가입
 def signup(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.

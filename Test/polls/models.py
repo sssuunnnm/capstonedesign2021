@@ -62,7 +62,7 @@ class Add_info(models.Model):
 
 
 class file(models.Model):
-    photo = models.ImageField(upload_to="image")
+    photo = models.ImageField(upload_to="")
 '''
 class Rating(models.Model):
     user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
