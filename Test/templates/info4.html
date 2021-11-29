@@ -1,0 +1,53 @@
+<!doctype html>
+{% load static %}
+<html lang='ko'>
+  <head>
+    <meta charset="utf-8">
+    <title> 가배추 정보 입력 [4/4] </title>
+    <link rel = "stylesheet" href="{% static 'css/info3.css' %}">
+  </head>
+
+  <body>
+    <header id="HomeHeader">
+      <div class = "container">
+        <a href="home">홈</a>
+        {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
+        {% else %}
+        <a href="login">로그인</a>
+        <a href="signup"> 회원가입</a>
+        {% endif %}
+      </div>
+
+      <div class = 'logoimg'>
+        <img src="/static/img/titleLogo2.png" width ="105px" height="28px">
+      </div>
+    </header>
+
+    <main id = 'MainTitle'>
+      <div class = 'mainsection'>
+        <p> 정보 입력<br>
+             ○ ○ ○ ● </p>
+
+        <form method='post' action='loading' class = 'selectForm'>
+          {% csrf_token %}
+          <div class = 'addedfurniture'>
+            <p> 추가 가구의 종류를 선택해주세요 </p>
+
+            <div class = 'box'>
+              <div class = "addedfurselect">
+                <input type = "checkbox" name = "chk_fur1[]" value = "bed"> 침대<br>
+                <input type = "checkbox" name = "chk_fur1[]" value = "refri"> 냉장고<br>
+                <input type = "checkbox" name = "chk_fur1[]" value = "closet"> 옷장<br>
+              </div>
+            </div>
+          </div>
+
+          <div class = "button">
+            <input type = "submit" class = "btn" value = "다음으로"></button>
+          </div>
+        </form>
+      </div>
+    </main> 
+  </body>
+</html>
