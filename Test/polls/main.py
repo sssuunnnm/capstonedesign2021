@@ -636,8 +636,8 @@ def find_index6(array1, a):
         if pow == 1:
             while(1):
                 cont = 0
-                in1 = random.choice([0, 20 - a.hsize])
-                in2 = random.randint(0, 20 - a.wsize)
+                in1 = random.choice([0, 15 - a.hsize])
+                in2 = random.randint(0, 15 - a.wsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
@@ -647,8 +647,8 @@ def find_index6(array1, a):
         else:
             while (1):
                 cont = 0
-                in2 = random.choice([0, 20 - a.wsize])
-                in1 = random.randint(0, 20 - a.hsize)
+                in2 = random.choice([0, 15 - a.wsize])
+                in1 = random.randint(0, 15 - a.hsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
@@ -677,9 +677,9 @@ def fixgenerate(chk,k):
         elif chk[i] == 'refri':
             listchk.append(refri(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
             listloca.append(k[i])
-        elif chk[i] == 'restroom':
-            listchk.append(restroom(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
-            listloca.append(k[i])
+        #elif chk[i] == 'restroom':
+         #   listchk.append(restroom(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
+          #  listloca.append(k[i])
         elif chk[i] == 'bed':
             if(len(k[i])>1):
                 if(k[i][1]-k[i][0]==1):
@@ -706,7 +706,7 @@ def fixgenerate(chk,k):
 
 def addgenerate(chk):
     listchk=[]
-    for i in range(len(chk)):
+    '''for i in range(len(chk)):
         if chk[i]=='bed':
             listchk.append(bed(8,4,0,0,0,0,'가로',0))
         elif chk[i] == 'wmachine':
@@ -721,6 +721,12 @@ def addgenerate(chk):
             listchk.append(refri(3,3,0,0,0,0,'가로',0))
         elif chk[i]=='table':
             listchk.append(table(2,2,0,0,0,0,'가로',0))
+            '''
+    initial(kitchen(6, 3, 0, 0, 0, 0, '가로', 0), 0, 0)
+    initial(restroom(3, 3, 0, 0, 0, 0, '가로', 0), 20-3, 0)
+    listchk.append(bed(8,4,0,0,0,0,'가로',0))
+    listchk.append(refri(3,3,0,0,0,0,'가로',0))
+    listchk.append(closet(4,2,0,0,0,0,'세로',0))
     for i in range(len(listchk)):
         find_index6(array1,listchk[i])
     return array1
