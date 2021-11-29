@@ -3,7 +3,7 @@
 <html lang='ko'>
   <head>
     <meta charset="utf-8">
-    <title>HOME</title>
+    <title> 가배추 정보 입력 [3/4] </title>
     <link rel = "stylesheet" href="{% static 'css/info3.css' %}">
   </head>
 
@@ -27,12 +27,12 @@
     <main id = 'MainTitle'>
       <div class = 'mainsection'>
         <p> 정보 입력<br>
-             ○ ○ ●  </p>
+             ○ ○ ● ○ </p>
 
         <form method='post' action='info4' class = 'selectForm'>
           {% csrf_token %}
           <div class = 'fixedfurniture'>
-            <p> 현관을 등지고 고정 가구의 위치를 선택해주세요 </p>
+            <p> 현관을 등지고 바라본 고정 가구의 위치를 선택해주세요 </p>
 
             <div class = 'box'>
               <div class = 'img'>
@@ -41,23 +41,12 @@
 
               <div class = "fixedfurselect">
                 <input type = "checkbox" checked="checked" name = "chk_fur1[]" value = "kitchen"> 주방<br>
-                <input type = "checkbox" name = "chk_fur1[]" value = "front"> 현관<br>
-                <input type = "checkbox"  name = "chk_fur1[]" value = "refri"> 냉장고<br>
                 <input type = "checkbox" checked="checked" name = "chk_fur1[]" value = "restroom"> 화장실<br>
-                <input type = "checkbox"  name = "chk_fur1[]" value = "bed"> 침대<br>
-                <input type = "checkbox"  name = "chk_fur1[]" value = "closet"> 옷장<br>
-                <input type = "checkbox"  name = "chk_fur1[]" value = "washer"> 세탁기<br>
-                <input type = "checkbox"  name = "chk_fur1[]" value = "none"> 없음<br>
               </div>
 
               <div class = "fixedfurloc">
-                <input type = "text" name = "Kname1[]" style = "width:100px" placeholder=" ex) 1, 2, 3"><br>
-                <input type = "text" name = "Kname2[]" style = "width:100px"><br>
-                <input type = "text" name = "Kname3[]" style = "width:100px"><br>
-                <input type = "text" name = "Kname4[]" style = "width:100px"><br>
-                <input type = "text" name = "Kname5[]" style = "width:100px"><br>
-                <input type = "text" name = "Kname6[]" style = "width:100px"><br>
-                <input type = "text" name = "Kname7[]" style = "width:100px"><br>
+                <input type = "text" name = "Kname1[]" style = "width:100px" value = "0"><br>
+                <input type = "text" name = "Kname2[]" style = "width:100px" value = "0"><br>
               </div>
             </div>
           </div>
