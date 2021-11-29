@@ -636,8 +636,8 @@ def find_index6(array1, a):
         if pow == 1:
             while(1):
                 cont = 0
-                in1 = random.choice([0, 14 - a.hsize])
-                in2 = random.randint(0, 14 - a.wsize)
+                in1 = random.choice([0, 20 - a.hsize])
+                in2 = random.randint(0, 20 - a.wsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
@@ -647,8 +647,8 @@ def find_index6(array1, a):
         else:
             while (1):
                 cont = 0
-                in2 = random.choice([0, 14 - a.wsize])
-                in1 = random.randint(0, 14 - a.hsize)
+                in2 = random.choice([0, 20 - a.wsize])
+                in1 = random.randint(0, 20 - a.hsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
