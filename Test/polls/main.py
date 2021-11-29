@@ -718,7 +718,7 @@ def addgenerate(chk):
         elif chk[i]=='storage':
             listchk.append(storage(4,4,0,0,0,0,'가로',0))
         elif chk[i]=='refri':
-            listchk.append(refri(6,6,0,0,0,0,'가로',0))
+            listchk.append(refri(3,3,0,0,0,0,'가로',0))
         elif chk[i]=='table':
             listchk.append(table(2,2,0,0,0,0,'가로',0))
     for i in range(len(listchk)):
