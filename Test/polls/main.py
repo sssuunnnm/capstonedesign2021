@@ -229,8 +229,8 @@ class wmachine:
 
 class restroom:
     def __init__(self, wsize,hsize, loca1,loca2,loca3,loca4,direction,location):
-        self.wsize = 6
-        self.hsize = 6
+        self.wsize = 3
+        self.hsize = 3
         self.loca1 = loca1
         self.loca2 = loca2
         self.loca3 = loca3
@@ -678,7 +678,7 @@ def fixgenerate(chk,k):
             listchk.append(refri(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
             listloca.append(k[i])
         elif chk[i] == 'restroom':
-            listchk.append(restroom(6, 6, 0, 0, 0, 0, '가로', k[i][0]))
+            listchk.append(restroom(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
             listloca.append(k[i])
         elif chk[i] == 'bed':
             if(len(k[i])>1):
@@ -807,7 +807,7 @@ def func2(furlist):
     alist = []
     if len(furlist) < 5:
         alist.append('table')
-
+    # 침대 없으면 무조건 침대 추가
 
 
     return alist
