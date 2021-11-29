@@ -107,11 +107,11 @@ def loading(request):
     return render(request,'loading.html')
 
 def thanks(request):
-    r1 = int(request.POST['chk_info1'])
-    r2 = int(request.POST['chk_info2'])
-    r3 = int(request.POST['chk_info3'])
+    #r1 = int(request.POST.get['chk_info1'])
+    #r2 = int(request.POST.get['chk_info2'])
+    #r3 = int(request.POST.get['chk_info3'])
 
-    print(r1, r2, r3)
+    #print(r1, r2, r3)
     # 데이터 베이스로 세이브 필요
     return render(request, 'thanks.html')
 # 회원 가입

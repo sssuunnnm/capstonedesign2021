@@ -636,8 +636,8 @@ def find_index6(array1, a):
         if a.direction == '가로':
             while(1):
                 cont = 0
-                in1 = random.choice([0, 19 - a.hsize])
-                in2 = random.randint(0, 19 - a.wsize)
+                in1 = random.choice([0, 15 - a.hsize])
+                in2 = random.randint(0, 15 - a.wsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
@@ -647,8 +647,8 @@ def find_index6(array1, a):
         else:
             while (1):
                 cont = 0
-                in2 = random.choice([0, 19 - a.wsize])
-                in1 = random.randint(0, 19 - a.hsize)
+                in2 = random.choice([0, 15 - a.wsize])
+                in1 = random.randint(0, 16 - a.hsize)
                 for i in range(in1, in1 + a.hsize):
                     for j in range(in2, in2 + a.wsize):
                         if array1[i][j] != 0:
