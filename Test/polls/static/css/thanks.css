@@ -38,6 +38,7 @@
 /* 본문 */
 .mainsection{
     padding-top: 40px;
+    padding-top : 200px;
 }
 
 .box {
@@ -66,7 +67,7 @@
 /* 버튼 */
 .button{
     position : relative;
-    top : 10px;
+    padding-top : 10px;
     text-align : center;
     padding-left : 10px
 }

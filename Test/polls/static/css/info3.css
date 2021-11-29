@@ -38,8 +38,13 @@
 /* 본문 */
 .mainsection{
     width : 600px;
+    padding-top: 50px;
     margin : auto;
     text-align : center;
+}
+
+.input_name {
+    padding-bottom : 10px;
 }
 
 .selectForm{
