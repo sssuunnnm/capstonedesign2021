@@ -37,48 +37,60 @@
 
 /* 본문 */
 .mainsection{
-    width : 300px;
+    padding-top: 40px;
+}
+
+.box {
+    width : 250px;
+    display: inline;
     margin : auto;
+}
+
+.titlesection {
+    font-size : 36px;
+    color : #2c2c2c;
+}
+
+.titlesection p{
     text-align : center;
+    margin : 0px;
+
+    display : block;
+    margin-block-start : 10px;
+    margin-block-end : 10px;
+    margin-inline-start : 10px;
+    margin-inline-end : 10px;
 }
 
-.selectForm{
-    text-align : left;
-    width : 180px;
-    margin : auto;
-}
-
-.selectForm p{
-    font-size : 18px;
-}
 
 /* 버튼 */
-.button {
+.button{
     position : relative;
-    top : 20px;
-    text-align: center;
+    top : 10px;
+    text-align : center;
+    padding-left : 10px
 }
 
-.btn {
+.button button{
     display : inline;
-    width : 100px;
-    height : 30px;
+    width : 160px;
+    height : 40px;
     color : #ffffff;
     background : #7cb342;
-    font-size : 14px;
+    font-size : 16px;
     border : none;
     border-radius : 20px;
     box-shadow : 0 4px 16px rgba(105,147,6,0.3);
     transition : 0.3s;
 }
 
-.btn:focus {
+.button button:focus {
     outline : 0;
 }
 
-.btn:hover {
+.button button:hover {
     background : rgba(159, 201, 60, 0.9);
     cursor : pointer;
-    box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6);
+    box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6); 
 }
   

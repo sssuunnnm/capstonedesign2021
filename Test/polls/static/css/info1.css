@@ -1,42 +1,82 @@
-* {padding: 0; margin: 0;}
-* {background-color:#e8f5e9; font-family:  "Noto Sans CJK KR"}
+* {
+    background-color:#ffffff;
+    font-family:  "Noto Sans CJK KR"
+}
 
-/* (반응형) 홈 화면 ~1280 */
-@media (max-width:1280px) {body {background-color:#bbdefb}}
-@media (max-width:1024px) {body {background-color:#90caf9}}
-@media (max-width:768px) {body {background-color:#64b5f6}}
-@media (max-width:600px) {body {background-color:#42a5f5}}
-@media (max-width:480px) {body {background-color:#2196f3}}
+/* 우측 상단바 */
+.container {
+    width : 1200px;
+    margin : 0 auto;
+    background : inherit;
+    text-align :right;
+}
 
-/* (반응형)오른쪽 상단바 */
-.container{width:1200px; margin:0 auto; background:inherit; text-align:right;}
-.container a{display:inline-block; text-decoration:none; color:#212121; padding: 5px 0 0 10px; transition: all 0.5s ease;}
-.container a:hover {color:#f44336; }
-@media (max-width : 1280px) {.container {width:90%; padding:0 15px}}
+.container a {
+    display : inline-block;
+    text-decoration : none;
+    color : #212121;
+    padding : 5px 0 0 10px;
+    transition: all 0.5s ease;
+}
 
-/* 내용 가운데 정렬 */
-body {text-align: center}
+.container a:hover {color : #268623}
 
-.title {text-align: center;
-	text-transform:uppercase;}
-.title p {display: inline;
-	font-size: 24px;
-	color:#424242;
-	padding: 20px 20px}
+@media (max-width : 1280px){
+    .container {
+        width : 90%;
+        padding : 0 15px
+    }
+}
+
+/* 사이트 로고 */
+.logoimg {
+    text-align : center;
+}
+
+/* 본문 */
+.mainsection{
+    width : 300px;
+    margin : auto;
+    text-align : center;
+}
+
+.selectForm{
+    text-align : left;
+    width : 180px;
+    margin : auto;
+}
+
+.selectForm p{
+    font-size : 18px;
+}
 
 /* 버튼 */
-.btn{text-align:center;
-	width:100px;
-	height: 30px;
-	color:#fff;
-	background:#7cb342;
-	font-size: 14px;
-	border:none;
-	border-radius: 20px;
-	box-shadow: 0 4px 16px rgba(105,147,6,0.3);
-	transition:0.3s;}
-.btn:focus{outline:0;}
-.btn:hover{background: rgba(159, 201, 60, 0.9);
-	cursor: pointer;
-	box-shadow: 0 2px 4px rgba(107, 153, 0, 0.6);
+.button {
+    position : relative;
+    top : 20px;
+    text-align: center;
 }
+
+.btn {
+    display : inline;
+    width : 100px;
+    height : 30px;
+    color : #ffffff;
+    background : #7cb342;
+    font-size : 14px;
+    border : none;
+    border-radius : 20px;
+    box-shadow : 0 4px 16px rgba(105,147,6,0.3);
+    transition : 0.3s;
+}
+
+.btn:focus {
+    outline : 0;
+}
+
+.btn:hover {
+    background : rgba(159, 201, 60, 0.9);
+    cursor : pointer;
+    box-shadow : 0 2px 4px rgba(107, 153, 0, 0.6);
+}
+  
