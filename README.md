@@ -39,17 +39,17 @@
 #
 #### 4️⃣ Flow chart
 
-![flowchart1.png](flowchart1.png)
-![flowchart2.png](flowchart2.png)
-![flowchart3.png](flowchart3.png)
+![flowchart1.png](picture/flowchart1.png)
+![flowchart2.png](picture/flowchart2.png)
+![flowchart3.png](picture/flowchart3.png)
 
 #
 
 #### 5️⃣ 실행 화면
 
-![1home.png](1home.png)
-![2user_info.png](2user_info.png)
-![3room_info.png](3room_info.png)
-![4fixed_info.png](4fixed_info.png)
-![5add_info.png](5add_info.png)
-![6result.png](6result.png)
+![1home.png](picture/1home.png)
+![2user_info.png](picture/2user_info.png)
+![3room_info.png](picture/3room_info.png)
+![4fixed_info.png](picture/4fixed_info.png)
+![5add_info.png](picture/5add_info.png)
+![6result.png](picture/6result.png)
