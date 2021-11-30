@@ -12,6 +12,8 @@ urlpatterns =[
     url(r'logout', views.logout,name='logout'),
     url(r'login',views.login,name='login'),
     url(r'recommend',views.recommend,name='recommend'),
+    url(r'recommend1',views.recommend1,name='recommend1'),
+
     url(r'loading',views.loading,name='loading'),
     url(r'thanks',views.thanks,name='thanks'),
     url(r'info1/info2',views.info2,name='info2'),

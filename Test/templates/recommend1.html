@@ -1,0 +1,86 @@
+<!doctype html>
+{% load static %}
+<html lang='ko'>
+  <head>
+    <meta charset="utf-8">
+    <title> 가배추 추천배치</title>
+    <link rel = "stylesheet" href="{% static 'css/recommend.css' %}">
+  </head>
+
+  <body>
+    <header id="HomeHeader">
+      <div class = "container">
+        <a href="home">홈</a>
+        {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
+        {% else %}
+        <a href="login">로그인</a>
+        <a href="signup"> 회원가입</a>
+        {% endif %}
+      </div>
+
+      <div class = 'logoimg'>
+        <img src="/static/img/titleLogo2.png" width ="105px" height="28px">
+      </div>
+    </header>
+    
+    <main id = 'MainTitle'>
+      <div class = 'mainsection'>
+        <div class = 'titlesection'>
+          <p class = "normal"> 당신을 위한 추천배치 </p>
+        </div>
+        
+        <div class = 'star'>
+          <form method="post" action="info5" class="selectForm">
+            {% csrf_token %}
+            
+            <div class = 'box'>
+              <img src="/static/img/배치도1.png" style="cursor: pointer; max-width:70%; height:auto">
+              <div class = 'starsection'>
+                첫번째 추천의 별점을 남겨 주세요<br>
+                <input type="radio" name="chk_info1" value="1">★☆☆☆☆<br>
+                <input type="radio" name="chk_info1" value="2">★★☆☆☆<br>
+                <input type="radio" name="chk_info1" value="3">★★★☆☆<br>
+                <input type="radio" name="chk_info1" value="4">★★★★☆<br>
+                <input type="radio" name="chk_info1" value="5">★★★★★<br>
+              </div>
+            </div>
+
+            <div class = 'box'>
+              <img src="/static/img/배치도2.png" style="cursor: pointer; max-width:70%; height:auto">
+              <div class = 'starsection'>
+                두번째 추천의 별점을 남겨 주세요<br>
+                <input type="radio" name="chk_info2" value="1">★☆☆☆☆<br>
+                <input type="radio" name="chk_info2" value="2">★★☆☆☆<br>
+                <input type="radio" name="chk_info2" value="3">★★★☆☆<br>
+                <input type="radio" name="chk_info2" value="4">★★★★☆<br>
+                <input type="radio" name="chk_info2" value="5">★★★★★<br>
+              </div>
+            </div>
+
+            <div class = 'box'>
+              <img src="/static/img/시배치도.png" style="cursor: pointer; max-width:70%; height:auto">
+              <div class = 'starsection'>
+                세번째 추천의 별점을 남겨 주세요<br>
+                <input type="radio" name="chk_info3" value="1">★☆☆☆☆<br>
+                <input type="radio" name="chk_info3" value="2">★★☆☆☆<br>
+                <input type="radio" name="chk_info3" value="3">★★★☆☆<br>
+                <input type="radio" name="chk_info3" value="4">★★★★☆<br>
+                <input type="radio" name="chk_info3" value="5">★★★★★<br>
+              </div>
+            </div>
+
+            <div class = 'feedback'>
+              <p> 추천에 대한 피드백을 남겨 주세요! </p>
+              <input type="text" name="Rname" style="background-color:white;"><br>
+            </div>
+
+            <div class = "button">
+              <input type="submit" class="btn" value = "제출!"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -40,8 +40,8 @@ def info2(request):
 
 
 def info3(request):
+
     room_name=request.GET.get('Rname')
-    # shape=request.GET.get('chk_shape')
     return render(request, 'info3.html')
 
 def info4(request):
@@ -51,9 +51,8 @@ def info4(request):
 
     #아무 가구도 없을 때
     if 'none' in chk_fur1:
-        #수정필요
-        array1 = main.fixgenerate(furniture_list,'인덱스리스트수정필요')
-        return render(request, 'info4.html', {'array1': array1})
+        #array1 = main.fixgenerate(furniture_list,'인덱스리스트수정필요')
+        return render(request, 'recommend1.html')
     print(chk_fur1)
     kname = []
     if 'kitchen' in chk_fur1:
@@ -77,12 +76,7 @@ def info4(request):
     print("fix")
     print(array1)
 
-    # 새로운 가구 추가해서 이니셜 필요
-
-
-
     # 배치도 이미지 생성
-
 
     return render(request, 'info4.html', {'array1': array1})
 
