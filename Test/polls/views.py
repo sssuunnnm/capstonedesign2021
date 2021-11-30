@@ -9,7 +9,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import user_info, file  #, Test, Rating
+from .models import user_info, File  #, Test, Rating
 
 array1 = np.zeros((20, 20))
 username=''
@@ -18,9 +18,8 @@ gender = '여'
 job = 'univ_students'
 room_name = ''
 user = User
-user = User.objects
-# test1 = Test()
-# rating1 = Rating()
+#test1 = Test()
+#rating1 = Rating()
 furniture_list = ['kitchen', 'front', 'refri','restroom','bed','closet','washer']
 
 def home(request):
@@ -31,18 +30,19 @@ def info1(request):
 
 @csrf_exempt
 def info2(request):
-    '''
-    age = request.POST.get['age']
-    gender = request.POST.get['gender']
-    job = request.POST.get['job']
-'''
-    return render(request, 'info2.html') #{'age': age}, {'job' : job}, {'gender': gender})
+    if not user.is_authenticated:
+        age = request.POST.get['age']
+        gender = request.POST.get['gender']
+        job = request.POST.get['job']
+
+    return render(request, 'info2.html')
 
 
 def info3(request):
-
     room_name=request.GET.get('Rname')
-    return render(request, 'info3.html')
+    user_info.room_name = room_name
+    user_info.save()
+    return render(request, 'info3.html',{'room_name':room_name})
 
 def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
@@ -71,12 +71,10 @@ def info4(request):
         if (len(kname4) == 1):
             kname44 = list(map(int, kname4[0].split(',')))
             kname.append(kname44)
-
     array1 = main.fixgenerate(chk_fur1, kname)
+
     print("fix")
     print(array1)
-
-    # 배치도 이미지 생성
 
     return render(request, 'info4.html', {'array1': array1})
 
@@ -96,7 +94,7 @@ def loading(request):
     back.save("002.png")
     main.show_image1(array1, "back1.png")
     image = Image.open("back1.png")
-    image.save('추천.png')
+    image.save('/media/','추천.png')
 
     return render(request,'loading.html')
 

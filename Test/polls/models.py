@@ -5,7 +5,6 @@ from django.contrib import auth
 
 
 class user_info(models.Model):
-
     #AGE_TEN = 10
     #AGE_TWENTY = 20
     #AGE_THIRTY = 30

@@ -806,7 +806,6 @@ def func1(job, age):
     if( j == 'students' or j == 'students' or a == '10s'):
         newlist.append('desk')
 
-
     return newlist
 
 def func2(furlist):
