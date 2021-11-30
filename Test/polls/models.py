@@ -61,14 +61,14 @@ class Add_info(models.Model):
     hanger = models.PositiveIntegerField(validators=[MaxValueValidator(25)], db_column='행거')
 
 
-class file(models.Model):
+class File(models.Model):
     photo = models.ImageField(upload_to="")
 
 class UserLatestTags(models.Model):
     user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
     furniture = models.IntegerField(db_column='furniture')
     tag = models.IntegerField(db_column='tag')
-'''
+
 class Rating(models.Model):
     user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
     furniture = models.IntegerField( db_column='furniture')
@@ -84,4 +84,4 @@ class Test(models.Model):
     tag = models.IntegerField( db_column='tag')
     rating = models.IntegerField( db_column='rating')
     members = models.IntegerField( db_column='memebers')
-'''
+
