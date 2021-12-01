@@ -8,19 +8,6 @@ from django_mysql.models import ListCharField
 
 
 class user_info(models.Model):
-<<<<<<< HEAD
-    # AGE_TEN = 10
-    # AGE_TWENTY = 20
-    # AGE_THIRTY = 30
-    # AGE_FORTY = 40
-    # AGE_CHOICES = ((AGE_TEN, 10), (AGE_TWENTY, 20), (AGE_THIRTY, 30), (AGE_FORTY, 40))
-=======
-    #AGE_TEN = 10
-    #AGE_TWENTY = 20
-    #AGE_THIRTY = 30
-    #AGE_FORTY = 40
-    #AGE_CHOICES = ((AGE_TEN, 10), (AGE_TWENTY, 20), (AGE_THIRTY, 30), (AGE_FORTY, 40))
->>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
 
     GENDER_MALE = "남"
     GENDER_FEMALE = "여"
@@ -74,8 +61,6 @@ class Add_info(models.Model):
 class File(models.Model):
     photo = models.ImageField(upload_to="")
 
-<<<<<<< HEAD
-
 class Tags(models.Model):
     # user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
     tag = ListCharField(
@@ -90,24 +75,10 @@ class Tags(models.Model):
         max_length=(2 * 4),
     )
 
-=======
-class UserLatestTags(models.Model):
-    user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
-    furniture = models.IntegerField(db_column='furniture')
-    tag = models.IntegerField(db_column='tag')
->>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
+
 
 class Rating(models.Model):
     tags = models.ForeignKey(Tags, default='', on_delete=models.CASCADE)
     rating = models.IntegerField(db_column='rating')
 
-
-'''
-class Test(models.Model):
-    furniture = models.ForeignKey("rating", related_name='furniture', on_delete=models.CASCADE, db_column='furniture')
-    gname = models.CharField(max_length=50, db_column='name')
-    rtype= models.CharField(max_length=50, db_column='type')
-    tag = models.IntegerField( db_column='tag')
-    rating = models.IntegerField( db_column='rating')
-    members = models.IntegerField( db_column='memebers')
 
