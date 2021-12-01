@@ -63,24 +63,23 @@ class Add_info(models.Model):
 class File(models.Model):
     photo = models.ImageField(upload_to="")
 
-class UserLatestTags(models.Model):
-    user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
-    furniture = models.IntegerField(db_column='furniture')
-    tag = models.IntegerField(db_column='tag')
+
+class Tags(models.Model):
+    # user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
+    tag = ListCharField(
+        base_field=CharField(max_length=9),
+        size=2,
+        max_length=(2 * 10),
+    )
+    rtype = models.CharField(max_length=10, db_column='type', default='square')
+    tagLoca = ListCharField(
+        base_field=CharField(max_length=3),
+        size=2,
+        max_length=(2 * 4),
+    )
+
+
 
 class Rating(models.Model):
-    user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
-    furniture = models.IntegerField( db_column='furniture')
-    rating = models.IntegerField( db_column='rating')
-    rtype = models.CharField(max_length=10, db_column='type')
-    tag = models.IntegerField(db_column='tag')
-
-    
-class Test(models.Model):
-    furniture = models.ForeignKey("rating", related_name='furniture', on_delete=models.CASCADE, db_column='furniture')
-    gname = models.CharField(max_length=50, db_column='name')
-    rtype= models.CharField(max_length=50, db_column='type')
-    tag = models.IntegerField( db_column='tag')
-    rating = models.IntegerField( db_column='rating')
-    members = models.IntegerField( db_column='memebers')
-
+    tags = models.ForeignKey(Tags, default='', on_delete=models.CASCADE)
+    rating = models.IntegerField(db_column='rating')
