@@ -9,9 +9,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import user_info, file, Rating, Tags
-from django.db.models import Max
-from .models import user_info, File  #, Test, Rating
+from .models import user_info, File, Rating, Tags
 
 array1 = np.zeros((20, 20))
 username = ''
@@ -36,7 +34,6 @@ def info1(request):
 
 @csrf_exempt
 def info2(request):
-<<<<<<< HEAD
     '''
     age = request.POST.get['age']
     gender = request.POST.get['gender']
