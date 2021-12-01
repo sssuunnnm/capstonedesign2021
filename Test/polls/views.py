@@ -9,10 +9,11 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import user_info, file  #, Test, Rating
+from .models import user_info, file, Rating, Tags
+from django.db.models import Max
 
 array1 = np.zeros((20, 20))
-username=''
+username = ''
 age = '20s'
 gender = '여'
 job = 'univ_students'
@@ -21,13 +22,16 @@ user = User
 user = User.objects
 # test1 = Test()
 # rating1 = Rating()
-furniture_list = ['kitchen', 'front', 'refri','restroom','bed','closet','washer']
+furniture_list = ['kitchen', 'front', 'refri', 'restroom', 'bed', 'closet', 'washer']
+
 
 def home(request):
     return render(request, 'home.html')
 
+
 def info1(request):
     return render(request, 'info1.html')
+
 
 @csrf_exempt
 def info2(request):
@@ -36,25 +40,27 @@ def info2(request):
     gender = request.POST.get['gender']
     job = request.POST.get['job']
 '''
-    return render(request, 'info2.html') #{'age': age}, {'job' : job}, {'gender': gender})
+    return render(request, 'info2.html')  # {'age': age}, {'job' : job}, {'gender': gender})
 
 
 def info3(request):
-    room_name=request.GET.get('Rname')
+    room_name = request.GET.get('Rname')
     # shape=request.GET.get('chk_shape')
     return render(request, 'info3.html')
 
+
 def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
-    print(chk_fur1)
-    addlist = []
-
-    #아무 가구도 없을 때
+    Tags1 = Tags()
+    # Rating1.user_id = request.user
+    Tags1.tag = chk_fur1
+    Tags1.tagLoca = ['12', '21']
+    Tags1.save()
+    # 아무 가구도 없을 때
     if 'none' in chk_fur1:
-        #수정필요
-        array1 = main.fixgenerate(furniture_list,'인덱스리스트수정필요')
+        # 수정필요
+        array1 = main.fixgenerate(furniture_list, '인덱스리스트수정필요')
         return render(request, 'info4.html', {'array1': array1})
-    print(chk_fur1)
     kname = []
     if 'kitchen' in chk_fur1:
         kname1 = request.POST.getlist('Kname1[]')
@@ -79,10 +85,7 @@ def info4(request):
 
     # 새로운 가구 추가해서 이니셜 필요
 
-
-
     # 배치도 이미지 생성
-
 
     return render(request, 'info4.html', {'array1': array1})
 
@@ -104,25 +107,44 @@ def loading(request):
     image = Image.open("back1.png")
     image.save('추천.png')
 
-    return render(request,'loading.html')
+    return render(request, 'loading.html')
+
 
 def thanks(request):
-    #r1 = int(request.POST.get['chk_info1'])
-    #r2 = int(request.POST.get['chk_info2'])
-    #r3 = int(request.POST.get['chk_info3'])
+    this = Tags.objects.latest('id')
 
-    #print(r1, r2, r3)
+    r1 = int(request.POST.get('chk_info1'))
+    r2 = int(request.POST.get('chk_info2'))
+    r3 = int(request.POST.get('chk_info3'))
+
+    room1 = Rating()
+    room1.tags = this
+    room1.rating = r1
+    room1.save()
+    room2 = Rating()
+    room2.tags = this
+    room2.rating = r2
+    room2.save()
+    room3 = Rating()
+    room3.tags = this
+    room3.rating = r3
+    room3.save()
+
+    # print(r1, r2, r3)
     # 데이터 베이스로 세이브 필요
     return render(request, 'thanks.html')
+
+
 # 회원 가입
 def signup(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     if request.method == 'POST':
         # password와 confirm에 입력된 값이 같다면
         if request.POST['password'] == request.POST['confirm']:
-            if request.POST['first_name'] is not None and request.POST['job']\
-                    is not None and request.POST['day'] is not None and request.POST['month'] is not None and request.POST['year'] is not None and request.POST['gender']:
-            # user 객체를 새로 생성
+            if request.POST['first_name'] is not None and request.POST['job'] \
+                    is not None and request.POST['day'] is not None and request.POST['month'] is not None and \
+                    request.POST['year'] is not None and request.POST['gender']:
+                # user 객체를 새로 생성
                 user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'],
                                                 first_name=request.POST['first_name'])
                 auth.login(request, user)
@@ -133,20 +155,21 @@ def signup(request):
                 userInfo.year = request.POST['year']
                 userInfo.month = request.POST['month']
                 userInfo.day = request.POST['day']
-                #userID = auth.authenticate(request, username='username', password='password')
-                #userinfo = user_info.objects.all
-                #userinfo = user_info(user_id=User.id, gender=request.POST['gender'], job=request.POST['job'])
+                # userID = auth.authenticate(request, username='username', password='password')
+                # userinfo = user_info.objects.all
+                # userinfo = user_info(user_id=User.id, gender=request.POST['gender'], job=request.POST['job'])
                 userInfo.save()
                 # 로그인 한다
                 auth.login(request, user)
                 {'username': username}
                 {'job': job}
                 {'gender': gender}
-                {'user' : user}
+                {'user': user}
                 return redirect('/')
 
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     return render(request, 'signup.html')
+
 
 # 로그인
 def login(request):
@@ -178,8 +201,6 @@ def login(request):
 # 로그 아웃
 def logout(request):
     auth.logout(request)
-    user=''
-    #{'user' : user}
+    user = ''
+    # {'user' : user}
     return redirect('/')
-
-
