@@ -8,11 +8,19 @@ from django_mysql.models import ListCharField
 
 
 class user_info(models.Model):
+<<<<<<< HEAD
     # AGE_TEN = 10
     # AGE_TWENTY = 20
     # AGE_THIRTY = 30
     # AGE_FORTY = 40
     # AGE_CHOICES = ((AGE_TEN, 10), (AGE_TWENTY, 20), (AGE_THIRTY, 30), (AGE_FORTY, 40))
+=======
+    #AGE_TEN = 10
+    #AGE_TWENTY = 20
+    #AGE_THIRTY = 30
+    #AGE_FORTY = 40
+    #AGE_CHOICES = ((AGE_TEN, 10), (AGE_TWENTY, 20), (AGE_THIRTY, 30), (AGE_FORTY, 40))
+>>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
 
     GENDER_MALE = "남"
     GENDER_FEMALE = "여"
@@ -63,9 +71,10 @@ class Add_info(models.Model):
     hanger = models.PositiveIntegerField(validators=[MaxValueValidator(25)], db_column='행거')
 
 
-class file(models.Model):
+class File(models.Model):
     photo = models.ImageField(upload_to="")
 
+<<<<<<< HEAD
 
 class Tags(models.Model):
     # user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
@@ -81,6 +90,12 @@ class Tags(models.Model):
         max_length=(2 * 4),
     )
 
+=======
+class UserLatestTags(models.Model):
+    user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
+    furniture = models.IntegerField(db_column='furniture')
+    tag = models.IntegerField(db_column='tag')
+>>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
 
 class Rating(models.Model):
     tags = models.ForeignKey(Tags, default='', on_delete=models.CASCADE)
@@ -95,4 +110,4 @@ class Test(models.Model):
     tag = models.IntegerField( db_column='tag')
     rating = models.IntegerField( db_column='rating')
     members = models.IntegerField( db_column='memebers')
-'''
+
