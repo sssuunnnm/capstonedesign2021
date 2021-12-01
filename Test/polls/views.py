@@ -9,12 +9,9 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-<<<<<<< HEAD
 from .models import user_info, file, Rating, Tags
 from django.db.models import Max
-=======
 from .models import user_info, File  #, Test, Rating
->>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
 
 array1 = np.zeros((20, 20))
 username = ''
@@ -23,17 +20,11 @@ gender = '여'
 job = 'univ_students'
 room_name = ''
 user = User
-<<<<<<< HEAD
 user = User.objects
 # test1 = Test()
 # rating1 = Rating()
 furniture_list = ['kitchen', 'front', 'refri', 'restroom', 'bed', 'closet', 'washer']
 
-=======
-#test1 = Test()
-#rating1 = Rating()
-furniture_list = ['kitchen', 'front', 'refri','restroom','bed','closet','washer']
->>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
 
 def home(request):
     return render(request, 'home.html')
@@ -55,24 +46,10 @@ def info2(request):
 
 
 def info3(request):
-    room_name = request.GET.get('Rname')
-    # shape=request.GET.get('chk_shape')
-    return render(request, 'info3.html')
-=======
-    if not user.is_authenticated:
-        age = request.POST.get['age']
-        gender = request.POST.get['gender']
-        job = request.POST.get['job']
-
-    return render(request, 'info2.html')
-
-
-def info3(request):
     room_name=request.GET.get('Rname')
     user_info.room_name = room_name
     user_info.save()
     return render(request, 'info3.html',{'room_name':room_name})
->>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
 
 
 def info4(request):
@@ -84,15 +61,8 @@ def info4(request):
     Tags1.save()
     # 아무 가구도 없을 때
     if 'none' in chk_fur1:
-<<<<<<< HEAD
-        # 수정필요
-        array1 = main.fixgenerate(furniture_list, '인덱스리스트수정필요')
-        return render(request, 'info4.html', {'array1': array1})
-=======
         #array1 = main.fixgenerate(furniture_list,'인덱스리스트수정필요')
         return render(request, 'recommend1.html')
-    print(chk_fur1)
->>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
     kname = []
     if 'kitchen' in chk_fur1:
         kname1 = request.POST.getlist('Kname1[]')
@@ -115,13 +85,10 @@ def info4(request):
     print("fix")
     print(array1)
 
-<<<<<<< HEAD
     # 새로운 가구 추가해서 이니셜 필요
 
     # 배치도 이미지 생성
 
-=======
->>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
     return render(request, 'info4.html', {'array1': array1})
 
 
@@ -143,14 +110,6 @@ def loading(request):
     image.save('/media/','추천.png')
 
     return render(request, 'loading.html')
-
-<<<<<<< HEAD
-=======
-def thanks(request):
-    r1 = int(request.POST.get['chk_info1'])
-    r2 = int(request.POST.get['chk_info2'])
-    r3 = int(request.POST.get['chk_info3'])
->>>>>>> 4d71adb2ea931281d70f7b1adb1241eb6440294e
 
 def thanks(request):
     this = Tags.objects.latest('id')
