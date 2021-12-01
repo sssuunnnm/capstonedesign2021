@@ -48,6 +48,11 @@ def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
     print(chk_fur1)
     addlist = []
+    Tags1 = Tags()
+    # Rating1.user_id = request.user
+    Tags1.tag = chk_fur1
+    Tags1.tagLoca = ['12', '21']
+    Tags1.save()
 
     #아무 가구도 없을 때
     if 'none' in chk_fur1:
@@ -99,11 +104,26 @@ def loading(request):
     return render(request,'loading.html')
 
 def thanks(request):
-    r1 = int(request.POST.get['chk_info1'])
-    r2 = int(request.POST.get['chk_info2'])
-    r3 = int(request.POST.get['chk_info3'])
+    this = Tags.objects.latest('id')
 
-    print(r1, r2, r3)
+    r1 = int(request.POST.get('chk_info1'))
+    r2 = int(request.POST.get('chk_info2'))
+    r3 = int(request.POST.get('chk_info3'))
+
+    room1 = Rating()
+    room1.tags = this
+    room1.rating = r1
+    room1.save()
+    room2 = Rating()
+    room2.tags = this
+    room2.rating = r2
+    room2.save()
+    room3 = Rating()
+    room3.tags = this
+    room3.rating = r3
+    room3.save()
+
+    # print(r1, r2, r3)
     # 데이터 베이스로 세이브 필요
     return render(request, 'thanks.html')
 # 회원 가입
