@@ -13,11 +13,11 @@ class user_info(models.Model):
     GENDER_FEMALE = "여"
     GENDER_CHOICES = ((GENDER_FEMALE, "남"), (GENDER_MALE, "여"))
 
-    JOB_STUDENT = "학생"
-    JOB_FREELANCE = "프리랜서"
-    JOB_NONE = "무직"
-    JOB_WORKER = "직장인"
-    JOB_CHOICES = ((JOB_STUDENT, "학생"), (JOB_FREELANCE, "프리랜서"), (JOB_NONE, "무직"), (JOB_WORKER, "직장인"))
+    students = "초중고학생"
+    freelancer = "프리랜서"
+    univ_students = "대학생"
+    office_worker = "회사원"
+    JOB_CHOICES = ((students, "초중고학생"), (freelancer, "프리랜서"), (univ_students, "대학생"), (office_worker, "회사원"))
 
     user = models.ForeignKey(User, default='', on_delete=models.CASCADE)
     year = models.IntegerField(db_column='년')

@@ -17,7 +17,7 @@ age = '20s'
 gender = '여'
 job = 'univ_students'
 room_name = ''
-user = User
+
 user = User.objects
 # test1 = Test()
 # rating1 = Rating()
@@ -45,7 +45,7 @@ def info2(request):
 def info3(request):
     room_name=request.GET.get('Rname')
     user_info.room_name = room_name
-    user_info.save()
+
     return render(request, 'info3.html',{'room_name':room_name})
 
 
@@ -54,6 +54,7 @@ def info4(request):
     Tags1 = Tags()
     # Rating1.user_id = request.user
     Tags1.tag = chk_fur1
+    #임시 기본값
     Tags1.tagLoca = ['12', '21']
     Tags1.save()
     # 아무 가구도 없을 때
