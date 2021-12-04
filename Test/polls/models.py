@@ -65,11 +65,13 @@ class Tags(models.Model):
     # user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
     tag = ListCharField(
         base_field=CharField(max_length=9),
-        size=2,
-        max_length=(2 * 10),
+        size=5,
+        max_length=(5 * 10),
     )
+    user = models.ForeignKey(User, default='', on_delete=models.CASCADE)
     rtype = models.CharField(max_length=10, db_column='type', default='square')
-    tagLoca = ListCharField(
+    restLoca = models.IntegerField()
+    kitchenLoca = ListCharField(
         base_field=CharField(max_length=3),
         size=2,
         max_length=(2 * 4),
