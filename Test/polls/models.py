@@ -3,12 +3,11 @@ from django.core.validators import MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import auth
-from django.db.models import CharField, Model
+from django.db.models import CharField, Model, Sum
 from django_mysql.models import ListCharField
 
 
 class user_info(models.Model):
-
     GENDER_MALE = "남"
     GENDER_FEMALE = "여"
     GENDER_CHOICES = ((GENDER_FEMALE, "남"), (GENDER_MALE, "여"))
@@ -61,26 +60,28 @@ class Add_info(models.Model):
 class File(models.Model):
     photo = models.ImageField(upload_to="")
 
-class Tags(models.Model):
+
+class layout(models.Model):
     # user_id = models.ForeignKey(User, default='', on_delete=models.CASCADE)
     tag = ListCharField(
         base_field=CharField(max_length=9),
         size=5,
         max_length=(5 * 10),
     )
-    user = models.ForeignKey(User, default='', on_delete=models.CASCADE)
-    rtype = models.CharField(max_length=10, db_column='type', default='square')
     restLoca = models.IntegerField()
-    kitchenLoca = ListCharField(
-        base_field=CharField(max_length=3),
-        size=2,
-        max_length=(2 * 4),
-    )
-
+    kitchenLoca = models.IntegerField()
 
 
 class Rating(models.Model):
-    tags = models.ForeignKey(Tags, default='', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default='', on_delete=models.CASCADE)
+    layout = models.ForeignKey(layout, default='', on_delete=models.CASCADE)
     rating = models.IntegerField(db_column='rating')
 
 
+class layoutRating(models.Model):
+    layout = models.ForeignKey(layout, default='', on_delete=models.CASCADE)
+    avgRating = models.DecimalField()
+    member = models.IntegerField()
+
+
+total = Rating.objects.filter(layout).aggregate(Sum('rating'))['rating__sum']
