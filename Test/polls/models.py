@@ -84,4 +84,4 @@ class layoutRating(models.Model):
     member = models.IntegerField()
 
 
-total = Rating.objects.filter(layout).aggregate(Sum('rating'))['rating__sum']
+avg = float(Rating.objects.filter(layout=1).aggregate(Sum('rating'))['rating__sum'] / len(Rating.object.filter(layout=1)))
