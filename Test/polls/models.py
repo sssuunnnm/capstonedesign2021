@@ -78,10 +78,5 @@ class Rating(models.Model):
     rating = models.IntegerField(db_column='rating')
 
 
-class layoutRating(models.Model):
-    layout = models.ForeignKey(layout, default='', on_delete=models.CASCADE)
-    avgRating = models.DecimalField()
-    member = models.IntegerField()
-
-
-avg = float(Rating.objects.filter(layout=1).aggregate(Sum('rating'))['rating__sum'] / len(Rating.object.filter(layout=1)))
+for i in len(layout.object.all()):
+    avg = float(Rating.objects.filter(layout=i).aggregate(Sum('rating'))['rating__sum'] / len(Rating.object.filter(layout=i)))
