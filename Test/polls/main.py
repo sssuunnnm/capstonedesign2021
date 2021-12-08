@@ -832,7 +832,7 @@ def grouping(list_a):
     return value
 
 def tagging(list_a, groupvalue):
-    if groupvalue ==21:
+    if groupvalue ==3:
         if list_a[0] == 1 and list_a[1] ==2:
             tagvalue = 1
         if list_a[0] == 1 and list_a[1] ==6:
@@ -842,11 +842,11 @@ def tagging(list_a, groupvalue):
         if list_a[0] == 5 and list_a[1] ==10:
             tagvalue = 4
         if list_a[0] == 19 and list_a[1] ==20:
-            tagvalue = 5
-        if list_a[0] == 24 and list_a[1] ==25:
             tagvalue = 6
+        if list_a[0] == 24 and list_a[1] ==25:
+            tagvalue = 5
 
-    if groupvalue ==25:
+    if groupvalue ==4:
         if list_a[0] == 1 and list_a[1] ==2:
             tagvalue = 1
         if list_a[0] == 1 and list_a[1] ==6:
@@ -866,23 +866,23 @@ def tagging(list_a, groupvalue):
         if list_a[0] == 5 and list_a[1] ==10:
             tagvalue = 2
         if list_a[0] == 16 and list_a[1] ==21:
-            tagvalue = 3
-        if list_a[0] == 21 and list_a[1] ==22:
             tagvalue = 4
+        if list_a[0] == 21 and list_a[1] ==22:
+            tagvalue = 3
         if list_a[0] == 20 and list_a[1] ==25:
-            tagvalue = 5
-        if list_a[0] == 24 and list_a[1] ==25:
             tagvalue = 6
+        if list_a[0] == 24 and list_a[1] ==25:
+            tagvalue = 5
 
-    if groupvalue ==5:
+    if groupvalue ==2:
         if list_a[0] == 1 and list_a[1] ==2:
             tagvalue = 1
         if list_a[0] == 1 and list_a[1] ==6:
             tagvalue = 2
         if list_a[0] == 16 and list_a[1] ==21:
-            tagvalue = 3
-        if list_a[0] == 21 and list_a[1] ==22:
             tagvalue = 4
+        if list_a[0] == 21 and list_a[1] ==22:
+            tagvalue = 3
         if list_a[0] == 20 and list_a[1] ==25:
             tagvalue = 5
         if list_a[0] == 24 and list_a[1] ==25:
@@ -925,6 +925,108 @@ def by_info(gender, age):
 
 
 def pic(groupvalue, tagvalue):
+    list_a= random.sample(range(1,4),1)
+    if groupvalue == 1:
+        if tagvalue == 1:
+            picnum1 = list_a[0]
+            picnum2 = picnum1+1
+            picnum3 = picnum2+1
+        if tagvalue == 2:
+            picnum1 = list_a[0] +5
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 3:
+            picnum1 = list_a[0] +10
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 4:
+            picnum1 = list_a[0]+15
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 5:
+            picnum1 = list_a[0]+20
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 6:
+            picnum1 = list_a[0]+25
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+    if groupvalue == 2:
+        if tagvalue == 1:
+            picnum1 = list_a[0]+30
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 2:
+            picnum1 = list_a[0]+35
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 3:
+            picnum1 = list_a[0]+40
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 4:
+            picnum1 = list_a[0]+45
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 5:
+            picnum1 = list_a[0]+50
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 6:
+            picnum1 = list_a[0]+55
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+    if groupvalue == 3:
+        if tagvalue == 1:
+            picnum1 = list_a[0]+60
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 2:
+            picnum1 = list_a[0]+65
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 3:
+            picnum1 = list_a[0]+70
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 4:
+            picnum1 = list_a[0]+75
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 5:
+            picnum1 = list_a[0]+80
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 6:
+            picnum1 = list_a[0]+85
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+    if groupvalue == 4:
+        if tagvalue == 1:
+            picnum1 = list_a[0]+90
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 2:
+            picnum1 = list_a[0]+95
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 3:
+            picnum1 = list_a[0]+100
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 4:
+            picnum1 = list_a[0]+105
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 5:
+            picnum1 = list_a[0]+110
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+        if tagvalue == 6:
+            picnum1 = list_a[0]+115
+            picnum2 = picnum1 + 1
+            picnum3 = picnum2 + 1
+
     group1 = Grouptable.objects.filter(pk=(groupvalue,tagvalue))
     testrate = Testrate.objects.all()
     rating =0
@@ -942,7 +1044,6 @@ def pic(groupvalue, tagvalue):
                 if(rating2 < testobj.rating):
                     rating2 =testobj.rating
                     picnum3 = testobj.picturenum
-
 
     return picnum1, picnum2, picnum3
 
