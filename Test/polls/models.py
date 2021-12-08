@@ -6,7 +6,6 @@ from django.contrib import auth
 from django.db.models import CharField, Model, Sum
 from django_mysql.models import ListCharField
 
-
 class user_info(models.Model):
     GENDER_MALE = "남"
     GENDER_FEMALE = "여"
@@ -80,3 +79,23 @@ class Rating(models.Model):
 
 for i in len(layout.object.all()):
     avg = float(Rating.objects.filter(layout=i).aggregate(Sum('rating'))['rating__sum'] / len(Rating.object.filter(layout=i)))
+
+class Usertable:
+    GENDER_MALE = "남"
+    GENDER_FEMALE = "여"
+    GENDER_CHOICES = ((GENDER_FEMALE, "남"), (GENDER_MALE, "여"))
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=5, db_column='gender')
+    age = models.IntegerField(db_column='age')
+    usernum = models.IntegerField(db_column='usernum')
+    members = models.IntegerField(db_column='members')
+
+class Grouptable:
+    groupvalue = models.IntegerField(db_column='group')
+    tagvalue = models.IntegerField(db_column='tag')
+    picturenum = models.IntegerField(db_column='picturenum')
+    usernum = models.IntegerField(db_column='usernum')
+
+class Testrate:
+    picturenum = models.IntegerField(db_column='picturenum')
+    rating = models.IntegerField(db_column='rating')
+    usernum = models.IntegerField(db_column='usernum')

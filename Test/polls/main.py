@@ -2,6 +2,7 @@
 import random
 import numpy as np
 from PIL import ImageFont, ImageDraw, Image
+from .models import user_info, File, Rating, layout, Grouptable, Usertable, Testrate
 array1 = np.zeros((20,20))
 class user:
     def __init__ (self, age, gender, job):
@@ -578,8 +579,8 @@ class table:
 def locationcal(a):
     if a.getlocation()>=1 and a.getlocation()<=5:
         for i in range((a.getlocation()-1)*4,a.getlocation()*4):
-            array1[0][i]=a.gettag()
-            array1[1][i]=a.gettag()
+            array1[0][i] = a.gettag()
+            array1[1][i] = a.gettag()
             array1[2][i] = a.gettag()
             array1[3][i] = a.gettag()
 
@@ -668,8 +669,8 @@ def fixgenerate(chk,k):
             if(len(k[i])>1):
                 if(k[i][1]-k[i][0]==1):
                     listchk.append(kitchen(6, 3, 0, 0, 0, 0, '가로', k[i][0]))
-            else:
-                listchk.append(kitchen(6, 3, 0, 0, 0, 0, '세로', k[i][0]))
+                else:
+                    listchk.append(kitchen(6, 3, 0, 0, 0, 0, '세로', k[i][0]))
             listloca.append(k[i])
         elif chk[i] == 'front':
             listchk.append(front(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
@@ -677,9 +678,9 @@ def fixgenerate(chk,k):
         elif chk[i] == 'refri':
             listchk.append(refri(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
             listloca.append(k[i])
-        #elif chk[i] == 'restroom':
-         #   listchk.append(restroom(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
-          #  listloca.append(k[i])
+        elif chk[i] == 'restroom':
+            listchk.append(restroom(3, 3, 0, 0, 0, 0, '가로', k[i][0]))
+            listloca.append(k[i])
         elif chk[i] == 'bed':
             if(len(k[i])>1):
                 if(k[i][1]-k[i][0]==1):
@@ -811,7 +812,166 @@ def func1(job, age):
 def func2(furlist):
     alist = []
     alist.append('desk')
-    # 침대 없으면 무조건 침대 추가
-
 
     return alist
+
+
+def grouping(list_a):
+    if list_a[0] == 1:
+        value = 1
+    if list_a[0] == 5:
+        value = 2
+    if list_a[0] == 21:
+        value = 3
+    if list_a[0] == 25:
+        value = 4
+    return value
+
+def tagging(list_a, groupvalue):
+    if groupvalue ==21:
+        if list_a[0] == 1 and list_a[1] ==2:
+            tagvalue = 1
+        if list_a[0] == 1 and list_a[1] ==6:
+            tagvalue = 2
+        if list_a[0] == 4 and list_a[1] ==5:
+            tagvalue = 3
+        if list_a[0] == 5 and list_a[1] ==10:
+            tagvalue = 4
+        if list_a[0] == 19 and list_a[1] ==20:
+            tagvalue = 5
+        if list_a[0] == 24 and list_a[1] ==25:
+            tagvalue = 6
+
+    if groupvalue ==25:
+        if list_a[0] == 1 and list_a[1] ==2:
+            tagvalue = 1
+        if list_a[0] == 1 and list_a[1] ==6:
+            tagvalue = 2
+        if list_a[0] == 4 and list_a[1] ==5:
+            tagvalue = 3
+        if list_a[0] == 5 and list_a[1] ==10:
+            tagvalue = 4
+        if list_a[0] == 16 and list_a[1] ==21:
+            tagvalue = 5
+        if list_a[0] == 21 and list_a[1] ==22:
+            tagvalue = 6
+
+    if groupvalue ==1:
+        if list_a[0] == 4 and list_a[1] ==5:
+            tagvalue = 1
+        if list_a[0] == 5 and list_a[1] ==10:
+            tagvalue = 2
+        if list_a[0] == 16 and list_a[1] ==21:
+            tagvalue = 3
+        if list_a[0] == 21 and list_a[1] ==22:
+            tagvalue = 4
+        if list_a[0] == 20 and list_a[1] ==25:
+            tagvalue = 5
+        if list_a[0] == 24 and list_a[1] ==25:
+            tagvalue = 6
+
+    if groupvalue ==5:
+        if list_a[0] == 1 and list_a[1] ==2:
+            tagvalue = 1
+        if list_a[0] == 1 and list_a[1] ==6:
+            tagvalue = 2
+        if list_a[0] == 16 and list_a[1] ==21:
+            tagvalue = 3
+        if list_a[0] == 21 and list_a[1] ==22:
+            tagvalue = 4
+        if list_a[0] == 20 and list_a[1] ==25:
+            tagvalue = 5
+        if list_a[0] == 24 and list_a[1] ==25:
+            tagvalue = 6
+
+    return tagvalue
+
+
+def by_info(gender, age):
+    g = gender
+    a = age
+    if g == '남':
+        if a == '10s':
+            result = ['남',10]
+            person_info = 1
+        if a == '20s':
+            result = ['남',20]
+            person_info = 2
+        if a == '30s':
+            result = ['남',30]
+            person_info = 3
+        if a == 'over40s':
+            result = ['남',40]
+            person_info = 4
+    else:
+        a = age
+        if a == '10s':
+            result = ['여',10]
+            person_info = 5
+        if a == '20s':
+            result = ['여',20]
+            person_info = 6
+        if a == '30s':
+            result = ['여',30]
+            person_info = 7
+        if a == 'over40s':
+            result = ['여',40]
+            person_info = 8
+    return result , person_info
+
+
+def pic(groupvalue, tagvalue):
+    if groupvalue == 1:
+        if tagvalue == 1:
+            picnum =
+        if tagvalue == 2:
+            picnum = 1
+        if tagvalue == 3:
+            picnum = 1
+        if tagvalue == 4:
+            picnum = 1
+        if tagvalue == 5:
+            picnum = 1
+        if tagvalue == 6:
+            picnum = 1
+    if groupvalue == 2:
+        if tagvalue == 1:
+            picnum = 1
+        if tagvalue == 2:
+            picnum = 1
+        if tagvalue == 3:
+            picnum = 1
+        if tagvalue == 4:
+            picnum = 1
+        if tagvalue == 5:
+            picnum = 1
+        if tagvalue == 6:
+            picnum = 1
+    if groupvalue == 3:
+        if tagvalue == 1:
+            picnum = 1
+        if tagvalue == 2:
+            picnum = 1
+        if tagvalue == 3:
+            picnum = 1
+        if tagvalue == 4:
+            picnum = 1
+        if tagvalue == 5:
+            picnum = 1
+        if tagvalue == 6:
+            picnum = 1
+    if groupvalue == 4:
+        if tagvalue == 1:
+            picnum = 1
+        if tagvalue == 2:
+            picnum = 1
+        if tagvalue == 3:
+            picnum = 1
+        if tagvalue == 4:
+            picnum = 1
+        if tagvalue == 5:
+            picnum = 1
+        if tagvalue == 6:
+            picnum = 1
+
+    return picnum
