@@ -9,7 +9,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import user_info, File, Rating, Tags, layout, Grouptable, Usertable, Testrate
+from .models import user_info, File, Rating, layout, Grouptable, Usertable, Testrate
 
 array1 = np.zeros((20, 20))
 username = ''
@@ -26,9 +26,9 @@ groupvalue=0
 infolist=[]
 personal = 0
 lay= layout()
-group = Grouptable.objects.all()
-usertable = Usertable.objects.all()
-testrate = Testrate.objects.all()
+#group = Grouptable.objects.all()
+#usertable = Usertable.objects.all()
+#testrate = Testrate.objects.all()
 pic1 =0
 pic2 =0
 pic3 =0
@@ -40,12 +40,11 @@ def info1(request):
 
 @csrf_exempt
 def info2(request):
-    if not user_info.is_authenticated:
-        age = request.POST.get['age']
-        gender = request.POST.get['gender']
-        job = request.POST.get['job']
-        {'age': age}, {'job' : job}, {'gender': gender}
-        infolist, personal= main.by_info(gender, age)
+    age = request.POST.get('age')
+    gender = request.POST.get('gender')
+    job = request.POST.get('job')
+    {'age': age}, {'job' : job}, {'gender': gender}
+    infolist, personal= main.by_info(gender, age)
 
     return render(request, 'info2.html')
 

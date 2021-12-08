@@ -77,8 +77,8 @@ class Rating(models.Model):
     rating = models.IntegerField(db_column='rating')
 
 
-for i in len(layout.object.all()):
-    avg = float(Rating.objects.filter(layout=i).aggregate(Sum('rating'))['rating__sum'] / len(Rating.object.filter(layout=i)))
+#for i in len(layout.object.all()):
+    #avg = float(Rating.objects.filter(layout=i).aggregate(Sum('rating'))['rating__sum'] / len(Rating.object.filter(layout=i)))
 
 class Usertable:
     GENDER_MALE = "남"
