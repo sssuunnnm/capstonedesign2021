@@ -35,25 +35,19 @@ pic3 =0
 def home(request):
     return render(request, 'home.html')
 
-
 def info1(request):
     return render(request, 'info1.html')
 
-
 @csrf_exempt
 def info2(request):
-
     if not user_info.is_authenticated:
         age = request.POST.get['age']
         gender = request.POST.get['gender']
         job = request.POST.get['job']
         {'age': age}, {'job' : job}, {'gender': gender}
-        personal, infolist = main.by_info(gender, age)
+        infolist, personal= main.by_info(gender, age)
 
-
-        #여기 객체로 넣고 세이브
     return render(request, 'info2.html')
-
 
 def info3(request):
     room_name=request.GET.get('Rname')
@@ -63,12 +57,10 @@ def info3(request):
 
 def info4(request):
     chk_fur1 = request.POST.getlist('chk_fur1[]')
-    # Rating1.user_id = request.user
-
     # 아무 가구도 없을 때
     if 'none' in chk_fur1:
-        picnum =0
-        return render(request, 'recommend1.html',{'picnum':picnum})
+        pic1=0 ; pic2=0; pic3=0;
+        return render(request, 'recommend1.html',{'pic1': pic1,'pic2': pic2,'pic3': pic3})
     kname = []
     if 'restroom' in chk_fur1:
         kname4 = request.POST.getlist('Kname4[]')
@@ -82,26 +74,17 @@ def info4(request):
             kname11 = list(map(int, kname1[0].split(',')))
             tagvalue = main.tagging(kname11,groupvalue)
             kname.append(kname11)
-    if 'front' in chk_fur1:
-        kname2 = request.POST.getlist('Kname2[]')
-        if (len(kname2) == 1):
-            kname22 = list(map(int, kname2[0].split(',')))
-            kname.append(kname22)
-    array1 = main.fixgenerate(chk_fur1, kname)
-    print("fix")
-    print(array1)
-    #lay.tag = [groupvalue, tagvalue]
+    #array1 = main.fixgenerate(chk_fur1, kname)
     lay.restLoca =groupvalue
     lay.kitchenLoca = tagvalue
     lay.save()
     return render(request, 'info4.html', {'array1': array1})
 
-
 def recommend(request):
     groupid = lay.restLoca
-    tagid=lay.kitchenLoca
-
-    return render(request, 'recommend.html', {'array1': array1})
+    tagid = lay.kitchenLoca
+    pic1, pic2, pic3 = main.pic(groupid, tagid)
+    return render(request, 'recommend.html', {'pic1': pic1,'pic2': pic2,'pic3': pic3})
 
 
 def loading(request):

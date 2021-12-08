@@ -4,6 +4,10 @@ import numpy as np
 from PIL import ImageFont, ImageDraw, Image
 from .models import user_info, File, Rating, layout, Grouptable, Usertable, Testrate
 array1 = np.zeros((20,20))
+group = Grouptable()
+usertable = Usertable()
+testrate = Testrate()
+
 class user:
     def __init__ (self, age, gender, job):
         self.age = age
@@ -921,57 +925,24 @@ def by_info(gender, age):
 
 
 def pic(groupvalue, tagvalue):
-    if groupvalue == 1:
-        if tagvalue == 1:
-            picnum =
-        if tagvalue == 2:
-            picnum = 1
-        if tagvalue == 3:
-            picnum = 1
-        if tagvalue == 4:
-            picnum = 1
-        if tagvalue == 5:
-            picnum = 1
-        if tagvalue == 6:
-            picnum = 1
-    if groupvalue == 2:
-        if tagvalue == 1:
-            picnum = 1
-        if tagvalue == 2:
-            picnum = 1
-        if tagvalue == 3:
-            picnum = 1
-        if tagvalue == 4:
-            picnum = 1
-        if tagvalue == 5:
-            picnum = 1
-        if tagvalue == 6:
-            picnum = 1
-    if groupvalue == 3:
-        if tagvalue == 1:
-            picnum = 1
-        if tagvalue == 2:
-            picnum = 1
-        if tagvalue == 3:
-            picnum = 1
-        if tagvalue == 4:
-            picnum = 1
-        if tagvalue == 5:
-            picnum = 1
-        if tagvalue == 6:
-            picnum = 1
-    if groupvalue == 4:
-        if tagvalue == 1:
-            picnum = 1
-        if tagvalue == 2:
-            picnum = 1
-        if tagvalue == 3:
-            picnum = 1
-        if tagvalue == 4:
-            picnum = 1
-        if tagvalue == 5:
-            picnum = 1
-        if tagvalue == 6:
-            picnum = 1
+    group1 = Grouptable.objects.filter(pk=(groupvalue,tagvalue))
+    testrate = Testrate.objects.all()
+    rating =0
+    rating1 =0
+    rating2 =0
+    for testobj in testrate:
+        if(rating < testobj.rating):
+            rating = testobj.rating
+            picnum1 = testobj.picturenum
+        else:
+            if(rating1 <testobj.rating):
+                rating1 = testobj.rating
+                picnum2 = testobj.picturenum
+            else:
+                if(rating2 < testobj.rating):
+                    rating2 =testobj.rating
+                    picnum3 = testobj.picturenum
 
-    return picnum
+
+    return picnum1, picnum2, picnum3
+
